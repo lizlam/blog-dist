@@ -1,0 +1,634 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[blog by grepliz]]></title><description><![CDATA[mostly technical musings]]></description><link>https://lumen.netlify.com</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 16 Nov 2019 05:01:20 GMT</lastBuildDate><item><title><![CDATA[How to Use Tabs in vim]]></title><description><![CDATA[I started using tabs just recently in vim and found it pretty useful.]]></description><link>https://lumen.netlify.com/posts/using-vim-tabs</link><guid isPermaLink="false">https://lumen.netlify.com/posts/using-vim-tabs</guid><pubDate>Fri, 15 Nov 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;I started using tabs just recently in &lt;code class=&quot;language-text&quot;&gt;vim&lt;/code&gt; and found it pretty useful.&lt;br&gt;
+Here are a couple of tips on how to create, open and navigate tabs in my favorite editor.&lt;/p&gt;
+&lt;h1 id=&quot;create&quot;&gt;&lt;a href=&quot;#create&quot; aria-label=&quot;create permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Create&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&quot;/media/vim-tabs-newfile.gif&quot; alt=&quot;Create files in vim&quot;&gt;&lt;/p&gt;
+&lt;p&gt;There are many ways to create a new file on the command line.  &lt;/p&gt;
+&lt;p&gt;In &lt;code class=&quot;language-text&quot;&gt;vim&lt;/code&gt;, you can start to create a new file using tabs with the following:&lt;/p&gt;
+&lt;p&gt;Type &lt;code class=&quot;language-text&quot;&gt;:tabnew&lt;/code&gt; and then hit &lt;code class=&quot;language-text&quot;&gt;ENTER&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;On my Mac, this drops me into the editor in &lt;em&gt;insert&lt;/em&gt; mode.&lt;br&gt;
+You may need to enter &lt;em&gt;insert&lt;/em&gt; mode manually (i.e. hit &lt;code class=&quot;language-text&quot;&gt;i&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;Type away to your heart’s content!&lt;/p&gt;
+&lt;p&gt;To write the file:
+Hit &lt;code class=&quot;language-text&quot;&gt;ESC&lt;/code&gt;
+Type &lt;code class=&quot;language-text&quot;&gt;:w file_name&lt;/code&gt; and then enter. &lt;/p&gt;
+&lt;h1 id=&quot;open&quot;&gt;&lt;a href=&quot;#open&quot; aria-label=&quot;open permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Open&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&quot;/media/vim-tabs-editfile.gif&quot; alt=&quot;Edit files in vim&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Open an existing file using &lt;code class=&quot;language-text&quot;&gt;:tabe name_of_file&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Be mindful of your spelling because if &lt;code class=&quot;language-text&quot;&gt;name_of_file&lt;/code&gt; doesn’t exist, &lt;code class=&quot;language-text&quot;&gt;vim&lt;/code&gt; will open a tab with an empty buffer as though you were trying to create a new file.   &lt;/p&gt;
+&lt;h1 id=&quot;navigate&quot;&gt;&lt;a href=&quot;#navigate&quot; aria-label=&quot;navigate permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Navigate&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&quot;/media/vim-tabs-gotabs.gif&quot; alt=&quot;Navigate in vim&quot;&gt;&lt;/p&gt;
+&lt;p&gt;In &lt;em&gt;command&lt;/em&gt; mode (hit &lt;code class=&quot;language-text&quot;&gt;ESC&lt;/code&gt;):&lt;/p&gt;
+&lt;p&gt;Navigate forward between tabs with &lt;code class=&quot;language-text&quot;&gt;gt&lt;/code&gt;.&lt;br&gt;
+Navigate back using &lt;code class=&quot;language-text&quot;&gt;gT&lt;/code&gt;.    &lt;/p&gt;</content:encoded></item><item><title><![CDATA[Starting at My First Startup]]></title><description><![CDATA[No one likes change.]]></description><link>https://lumen.netlify.com/posts/starting-first-startup</link><guid isPermaLink="false">https://lumen.netlify.com/posts/starting-first-startup</guid><pubDate>Tue, 19 Jun 2018 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;No one likes change. It’s uncomfortable. It’s scary. It makes people uneasy trudging toward the unknown. But when I found myself at a fork in the road of my career, it became clear to me. I must change. Industries don’t stay static and neither should people.&lt;/p&gt;
+&lt;p&gt;I am no stranger to the software industry. I’ve worked at large corporations and mid-sized companies. I’ve built a comfortable career at fairly successful companies and have learned a great deal from working on interesting projects. I spent 12 years at my last company and though it was going fine, there was a little voice inside of me that kept reminding me to not get too comfortable.&lt;/p&gt;
+&lt;p&gt;When I received my opportunity to work at SKUR, I was ecstatic. I always wanted to work for a startup and loved the idea of being able to contribute to a company at the ground level. The first two weeks was a whirlwind of a lot of new information. This is true both on the technology front and domain front. I learned about AWS EC2 instances, S3 buckets and CodePipelines. I went over the architecture of a LAMP stack application, read Python code, committed changes to the website and gave UX input. I learned that many scans make up a point cloud and that all scans default to meters. These may just be many strange words for some, for me they represent a breaking out of my former comfort and the beginning of a journey with the exciting company that SKUR is.&lt;/p&gt;
+&lt;p&gt;I’ve been told the construction world is one of the slowest industries to adopt technology and companies are just starting to explore innovations that will push them to the next level. I am excited to help contribute towards that goal and excited to walk along that same path.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;This blog was &lt;a href=&quot;https://skur.com/2018/06/19/starting-first-startup/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;originally posted&lt;/a&gt; on the SKUR corporate site.&lt;/em&gt; &lt;/p&gt;</content:encoded></item><item><title><![CDATA[Create a Macro to Lint a Jenkinsfile]]></title><description><![CDATA[Learn how to lint a Jenkinsfile in vi.]]></description><link>https://lumen.netlify.com/posts/lint-jenkinsfile-vi-macro</link><guid isPermaLink="false">https://lumen.netlify.com/posts/lint-jenkinsfile-vi-macro</guid><pubDate>Thu, 07 Sep 2017 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;em&gt;&lt;a href=&quot;/posts/til-lint-jenkinsfile&quot;&gt;Yesterday&lt;/a&gt; I Learned&lt;/em&gt; how to lint a Jenkinsfile.  In the process of writing up that blog, I was curious about how it would work as a vi macro.  &lt;/p&gt;
+&lt;p&gt;For a quick refresher, here is how you record a macro:&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;qa&lt;/code&gt; - start recording a macro&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;q&lt;/code&gt; - stop recording&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;@a&lt;/code&gt; - play back the macro you just recorded.    &lt;/p&gt;
+&lt;p&gt;Also in vi, you can run shell commands using &lt;code class=&quot;language-text&quot;&gt;!&lt;/code&gt; while in escape mode.  Perfect!  &lt;/p&gt;
+&lt;p&gt;Putting it all together:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Step 1:  Open Your Jenkinsfile in vi&lt;/strong&gt;&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;vi Jenkinsfile&lt;/code&gt;    &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Step 2:  Start Recording a Macro:&lt;/strong&gt;&lt;br&gt;
+:&lt;code class=&quot;language-text&quot;&gt;qa&lt;/code&gt;    &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Step 3:  Enter the Steps to Run the Jenkinsfile Linter&lt;/strong&gt;&lt;br&gt;
+:&lt;code class=&quot;language-text&quot;&gt;! java -jar /path/to/jenkins-cli.jar -s http://JENKINS_URL declarative-linter &amp;lt; %&lt;/code&gt;    &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Step 4:  Stop Recording&lt;/strong&gt;&lt;br&gt;
+:&lt;code class=&quot;language-text&quot;&gt;q&lt;/code&gt;    &lt;/p&gt;
+&lt;p&gt;Now whenever I’m working on a Jenkinsfile, I can hit &lt;code class=&quot;language-text&quot;&gt;@a&lt;/code&gt; to lint my current file.  So cool!&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Note: When you replay the macro, it may go too fast for you to see the results of the linting.  Since it was executed in the current shell, you will see the results to STDOUT when you exit vi.&lt;/em&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Today I Learned How to Lint a Jenkinsfile]]></title><description><![CDATA[Today I learned how to lint a Jenkinsfile.]]></description><link>https://lumen.netlify.com/posts/til-lint-jenkinsfile</link><guid isPermaLink="false">https://lumen.netlify.com/posts/til-lint-jenkinsfile</guid><pubDate>Wed, 06 Sep 2017 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;em&gt;Today I Learned&lt;/em&gt; how to lint a Jenkinsfile.  Linting is the process of running some program that will verify your code for syntax errors.  I’ve been finding myself writing a lot of Jenkinsfiles lately and it’s a bit of a pain to write directly into the Jenkins UI where the linting happens.  There doesn’t seem to be any external plugins for IDE’s and editors, so in the meantime I was able to use Jenkins CLI to accomplish this in two steps. &lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Step 1: Download the Jenkins CLI&lt;/strong&gt;&lt;br&gt;
+Open a browser and navigate to:&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;http//JENKINS_URL/jnlpJars/jenkins-cli.jar&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Step 2: Execute the Linter&lt;/strong&gt;&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;java -jar jenkins-cli.jar -s http://JENKINS_URL declarative-linter &amp;lt; /path/to/Jenkinsfile&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;And that’s it!  It’s a simple but manual process.  This could probably be easily scripted in an external tool in Eclipse or some other IDE.  I tend to write my Jenkinsfiles in vi so it would be an interesting to see if I can simply record a macro to lint my current file. &lt;/p&gt;</content:encoded></item><item><title><![CDATA[Today I Learned About the POSIX Locale and Docker]]></title><description><![CDATA[Today I learned that the default locale for an Ubuntu image in a Docker container is not what I expected.]]></description><link>https://lumen.netlify.com/posts/til-posix-locale-docker</link><guid isPermaLink="false">https://lumen.netlify.com/posts/til-posix-locale-docker</guid><pubDate>Wed, 21 Jun 2017 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;em&gt;Today I learned&lt;/em&gt; that the default locale for an Ubuntu image in a Docker container is not what I expected it to be.  I was trying to view some Greek file names in a container and they did not
+appear correctly.  I immediately knew there must be something off with locale of the container.&lt;/p&gt;
+&lt;p&gt;What is a locale? It’s how Linux systems determines which language and character set a user sees when they log into a terminal session.  What is the default locale when pulling down a fresh Ubuntu 16.04 image?&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;root@4ff94ee1780d:/# locale
+LANG=
+LANGUAGE=
+LC_CTYPE=&amp;quot;POSIX&amp;quot;
+LC_NUMERIC=&amp;quot;POSIX&amp;quot;
+LC_TIME=&amp;quot;POSIX&amp;quot;
+LC_COLLATE=&amp;quot;POSIX&amp;quot;
+LC_MONETARY=&amp;quot;POSIX&amp;quot;
+LC_MESSAGES=&amp;quot;POSIX&amp;quot;
+LC_PAPER=&amp;quot;POSIX&amp;quot;
+LC_NAME=&amp;quot;POSIX&amp;quot;
+LC_ADDRESS=&amp;quot;POSIX&amp;quot;
+LC_TELEPHONE=&amp;quot;POSIX&amp;quot;
+LC_MEASUREMENT=&amp;quot;POSIX&amp;quot;
+LC_IDENTIFICATION=&amp;quot;POSIX&amp;quot;
+LC_ALL=&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;What??!!  POSIX??!!! What’s the POSIX Locale?  The POSIX locale is another name for the C locale  (That’s ANSI C not the C Language)  which is another name for “if you expect to see any Unicode characters, haha, the jokes on you” locale.&lt;/p&gt;
+&lt;p&gt;How to fix this?  Basically you need to add the &lt;code class=&quot;language-text&quot;&gt;locale-gen&lt;/code&gt; program to your container, generate and set the locale to something more appropriate.  This can be accomplished by adding the following to your Dockerfile:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;FROM ubuntu:16.04
+
+RUN apt-get clean &amp;amp;&amp;amp; apt-get update
+RUN apt-get install locales
+RUN locale-gen en_US.UTF-8  
+ENV LANG en_US.UTF-8  
+ENV LANGUAGE en_US:en  
+ENV LC_ALL en_US.UTF-8 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;After rebuilding my docker image and running it, I “ssh” (start an interactive bash session) into the container to check.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;root@15dc539c6e1c:/# locale
+LANG=en_US.UTF-8
+LANGUAGE=en_US:en
+LC_CTYPE=&amp;quot;en_US.UTF-8&amp;quot;
+LC_NUMERIC=&amp;quot;en_US.UTF-8&amp;quot;
+LC_TIME=&amp;quot;en_US.UTF-8&amp;quot;
+LC_COLLATE=&amp;quot;en_US.UTF-8&amp;quot;
+LC_MONETARY=&amp;quot;en_US.UTF-8&amp;quot;
+LC_MESSAGES=&amp;quot;en_US.UTF-8&amp;quot;
+LC_PAPER=&amp;quot;en_US.UTF-8&amp;quot;
+LC_NAME=&amp;quot;en_US.UTF-8&amp;quot;
+LC_ADDRESS=&amp;quot;en_US.UTF-8&amp;quot;
+LC_TELEPHONE=&amp;quot;en_US.UTF-8&amp;quot;
+LC_MEASUREMENT=&amp;quot;en_US.UTF-8&amp;quot;
+LC_IDENTIFICATION=&amp;quot;en_US.UTF-8&amp;quot;
+LC_ALL=en_US.UTF-8&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Looks good.  Finally, I check the previous Greek test files and see that the characters are properly rendered.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Today I Learned How to Setup a Rails Environment on Solus]]></title><description><![CDATA[Today I learned how to set up a Rails development environment on Solus.]]></description><link>https://lumen.netlify.com/posts/til-setup-rails-solus</link><guid isPermaLink="false">https://lumen.netlify.com/posts/til-setup-rails-solus</guid><pubDate>Fri, 12 May 2017 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;em&gt;Today I Learned&lt;/em&gt; how to set up a Rails development environment on Solus.  I’ve been running the &lt;a href=&quot;https://solus-project.com/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Solus distribution&lt;/a&gt; for a couple of months now.  I wanted to move over some of my local development environments from my Fedora laptop.  This is a little bit of a challenge if you’re used to mainstream Linux distributions (mainstream Linux seems like a bit of a oxymoron) with familiar tools such as apt or yum.  Solus is pretty new and not forked from another distro.  It has its own packaging system called ‘eopkg’.  These are the steps I had to take to get a Rails environment up and running and deployed using Heroku.&lt;/p&gt;
+&lt;p&gt;First I had to install all the packages needed to get Rails up and running:   &lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;sudo eopkg install -c system.devel&lt;/code&gt;&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;sudo eopkg install ruby-devel&lt;/code&gt;&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;sudo eopkg install sqlite3-devel&lt;/code&gt;&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;sudo eopkg install nodejs&lt;/code&gt;&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;sudo gem install rails&lt;/code&gt;   &lt;/p&gt;
+&lt;p&gt;Since I was using postgres, I also had to run the following:&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;sudo eopkg install postgresql&lt;/code&gt;&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;sudo eokpkg install postgresql-devel&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;All that’s left is to download and install the Heroku command line client:&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;wget https://cli-assets.heroku.com/branches/stable/heroku-linux-amd64.tar.gz -O heroku.tar.gz&lt;/code&gt;    &lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;tar zxvf heroku.tar.gz&lt;/code&gt;&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;cd heroku&lt;/code&gt;&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;sudo install&lt;/code&gt;    &lt;/p&gt;
+&lt;p&gt;After the Heroku client finished installing, I was able to clone my Rails projects and get them up and running.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Today I Learned About Running Shell Commands in Ruby]]></title><description><![CDATA[Today I learned about running shell commands in Ruby.]]></description><link>https://lumen.netlify.com/posts/til-about-ruby-shell-cmd</link><guid isPermaLink="false">https://lumen.netlify.com/posts/til-about-ruby-shell-cmd</guid><pubDate>Wed, 26 Apr 2017 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;em&gt;Today I Learned&lt;/em&gt; about running shell commands in Ruby.  I’m really familiar with bash and it feels really natural for me to use backticks to run shell commands.  A coworker who was looking over my code got confused by them and asked why I didn’t use some other options.  At the very least, backticks can look pretty ugly in your Ruby code and since it confused a fellow coworker, I spent a little time looking at other ways to do it.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Backticks or %x()&lt;/strong&gt;    &lt;/p&gt;
+&lt;p&gt;It’s pretty much the same way you would use them in bash. Simply put backticks around your command and it runs the way one would expect, returning standard output (standard error gets printed to the screen) of the shell command.  You can access the exit value with &lt;code class=&quot;language-text&quot;&gt;$?&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;irb --simple-prompt&lt;/code&gt; example:    &lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 445px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/6d5846a41007ed0fb6c8552d7b24902c/8d7ba/backtick_example.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 36.40449438202247%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsSAAALEgHS3X78AAAAZUlEQVQoz63RSQrAIAxA0aQjtIVOdC56/1O2X/QE6uJBVh8TRXf9ZBBvw4gKBSSCrgRXBosZJxa0sUFL8GF4Q0gS6UHwZpjQ5Aq6NS8c6ML9ytigUb+uCZ+yhFv2KS90P1tnWBc/OYOORQ6XOs8AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/6d5846a41007ed0fb6c8552d7b24902c/01472/backtick_example.webp 240w,
+/static/6d5846a41007ed0fb6c8552d7b24902c/8e51b/backtick_example.webp 445w&quot;
+          sizes=&quot;(max-width: 445px) 100vw, 445px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/6d5846a41007ed0fb6c8552d7b24902c/0783d/backtick_example.png 240w,
+/static/6d5846a41007ed0fb6c8552d7b24902c/8d7ba/backtick_example.png 445w&quot;
+          sizes=&quot;(max-width: 445px) 100vw, 445px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/6d5846a41007ed0fb6c8552d7b24902c/8d7ba/backtick_example.png&quot;
+          alt=&quot;Backtick Example&quot;
+          title=&quot;Backtick Example&quot;
+          loading=&quot;lazy&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;system&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Input your command as a string (i.e. quote it) to &lt;code class=&quot;language-text&quot;&gt;system&lt;/code&gt;, it returns true if
+the exit status is zero, otherwise it returns false.  This is a good method if you don’t care about the standard output of the command you’re running.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;irb --simple-prompt&lt;/code&gt; example:    &lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 392px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/a0b4c6874eb322222082c5936934cd31/2f47c/system_example.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 35.204081632653065%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsSAAALEgHS3X78AAAAdUlEQVQoz63PvQqAMAwE4NRFbMHaqoP4V+zm4uj7P1m8UEcHxQ4fHIEcCdlgmQwxaWhhgRkG6MGBAnpJbzqVyHIEC8VNfSwTPnqmGmGC7uPy44VBp/eksIHyZ6EZTXrXZLhOuOCYDoQ9U2FlK6YTYb0H6l/hBfT2j2CMHLAPAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/a0b4c6874eb322222082c5936934cd31/01472/system_example.webp 240w,
+/static/a0b4c6874eb322222082c5936934cd31/35f47/system_example.webp 392w&quot;
+          sizes=&quot;(max-width: 392px) 100vw, 392px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/a0b4c6874eb322222082c5936934cd31/0783d/system_example.png 240w,
+/static/a0b4c6874eb322222082c5936934cd31/2f47c/system_example.png 392w&quot;
+          sizes=&quot;(max-width: 392px) 100vw, 392px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/a0b4c6874eb322222082c5936934cd31/2f47c/system_example.png&quot;
+          alt=&quot;System Example&quot;
+          title=&quot;System Example&quot;
+          loading=&quot;lazy&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;exec&lt;/strong&gt;    &lt;/p&gt;
+&lt;p&gt;This is replace the current running process (i.e. will not run a new shell) and
+runs the command.  I’m not sure when it would be best to use this.  Perhaps when you don’t want to fork too many processes?&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;irb --simple-prompt&lt;/code&gt; example:    &lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 386px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/e6504a4e5df5463440c3bdcd22f6c63d/398bb/exec_example.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 31.606217616580306%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsSAAALEgHS3X78AAAAg0lEQVQY053QUQuCMBQF4DOa057KbE6znIgI/Zb+/+9ZB3YfhpGZDx9cxjice5HPdcATAY5Aig6UCS3vW5nWBlySQC2By49qY2DmrwGWw0g3OlP1R8BH4MzAgUNHE52kpZGVj5TTQ+afgU0VG/WITVu6I56hJC+NX8lZVm9YuH2rffEG8p17qfosiIsAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/e6504a4e5df5463440c3bdcd22f6c63d/01472/exec_example.webp 240w,
+/static/e6504a4e5df5463440c3bdcd22f6c63d/71411/exec_example.webp 386w&quot;
+          sizes=&quot;(max-width: 386px) 100vw, 386px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/e6504a4e5df5463440c3bdcd22f6c63d/0783d/exec_example.png 240w,
+/static/e6504a4e5df5463440c3bdcd22f6c63d/398bb/exec_example.png 386w&quot;
+          sizes=&quot;(max-width: 386px) 100vw, 386px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/e6504a4e5df5463440c3bdcd22f6c63d/398bb/exec_example.png&quot;
+          alt=&quot;Exec Example&quot;
+          title=&quot;Exec Example&quot;
+          loading=&quot;lazy&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Today I Learned About Netcat]]></title><description><![CDATA[Today I learned about netcat.]]></description><link>https://lumen.netlify.com/posts/til-about-netcat</link><guid isPermaLink="false">https://lumen.netlify.com/posts/til-about-netcat</guid><pubDate>Sat, 08 Apr 2017 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;em&gt;Today I learned&lt;/em&gt; about netcat, a utility written in 1995 for writing and reading data to TCP and UDP connections.
+It’s been called the “swiss army knife” of network utilities and from the little bit I’ve experiemented with,
+I can see why!&lt;/p&gt;
+&lt;p&gt;Although named &lt;code class=&quot;language-text&quot;&gt;netcat&lt;/code&gt;, the actual command you run is &lt;code class=&quot;language-text&quot;&gt;nc&lt;/code&gt;.  Here are a couple of examples of using &lt;code class=&quot;language-text&quot;&gt;nc&lt;/code&gt;
+that I found interesting.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Scanning for a Port&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Let’s say I’m running a webserver on localhost:4000 (&lt;a href=&quot;https://jekyllrb.com/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Jekyll&lt;/a&gt;’s default).&lt;/p&gt;
+&lt;p&gt;I then run the following in a terminal:&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;nc -v -z -w 1 localhost 3995-4000&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;netcat&lt;/code&gt; will scan through localhost’s port range 3995-4000, spitting out messages like this:&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 482px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/aa3e0139ccbdacd4a0ca45df27e8544f/3e1c2/nc-port-scan.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 73.44398340248964%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAAsSAAALEgHS3X78AAAC7klEQVQ4y1WUW3PaShCESaRd3YCAtBdJgDFgY4MhOBinkkolOafq/P//c/Iwnd4lSVUeunbngdY307MMEvMW2X0qyidIm7fQywT6LoGas3as16yXKYabEqP1EONjhWrB+wO1KzFclUJhfKikWGQ/BimNigctWaeQWYV8rVHc87xl3VI3KYqbDO0Hi+5AvVr4R+pMvRj4oxX/ZNF+slJvJz8GqktQHjPJF5oGwUyjPGQoNhr5nPUj6/s8GtZLBfNcwu4M3KWB+0idGunOHt1XJ2Zfk9CS8I6EnjRGobil0Yb3hYK2KTKasBW0Jwe/ncA/T+F3Ln6gDZR7Eu55/2hleveOhHOF8pxLscpJlKPcUyfeHzK2TT1mKNc5uovD7LXD7J8WscXP1JdoKu2ZH/hupXliy6lL+eOCLZfI+pItV2yT91UBPSuQbQoSsuX3Dv2xQ3+h4ZZGJ+qZ1Hsngbh/bcVsm0CYoDpzhkvOsCftTqM6cYZbts62i71CtaMhCae7MdyXOgQB97lB980FcukvHrP/vJhjmGGdIF8q0ZyfnnJmMxVqhNR1E1L+NcODQ70awR44w62DOzDh9yFxEj6GmTqZridXwvKZhDdXk5jqUf8hzB9UTLm7WJhNDnsZwj3R7JOJlO6Dke7Fo/+XKR8CoSEhU9bcQV1f02WN+AEX7jSkUUjZ3Y24Ju9iyj6k/ELCA1M+XFOOexheRjDkciNf6bDkUFWKNKc0lSXICg0/dxjXYzRtDduRtiflwqOde2nnLbrbVhrPUJIxn5dVUuyuhvlKxXDCPOMMOdOiz+Csw2Q0Qj2Zwlob69a3QfL7bGoavhm8AQORbK6EZsK2hUbx5NMTNU1Fay3ee+n7XrquE+fcX+IH4jmZTK6G4ZWEZOP77X7dOcOS66NNCjVgy45rk2Woh0MYEhpj0DRNPNuWu+k96rqOhqImqXA9GAzPXoU/CqG55GslSZqIShQJOPQyl2lVSWOM0OyPTKxNIPz/J/OQcEDR/eJiAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/aa3e0139ccbdacd4a0ca45df27e8544f/01472/nc-port-scan.webp 240w,
+/static/aa3e0139ccbdacd4a0ca45df27e8544f/222bd/nc-port-scan.webp 480w,
+/static/aa3e0139ccbdacd4a0ca45df27e8544f/12196/nc-port-scan.webp 482w&quot;
+          sizes=&quot;(max-width: 482px) 100vw, 482px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/aa3e0139ccbdacd4a0ca45df27e8544f/0783d/nc-port-scan.png 240w,
+/static/aa3e0139ccbdacd4a0ca45df27e8544f/782f4/nc-port-scan.png 480w,
+/static/aa3e0139ccbdacd4a0ca45df27e8544f/3e1c2/nc-port-scan.png 482w&quot;
+          sizes=&quot;(max-width: 482px) 100vw, 482px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/aa3e0139ccbdacd4a0ca45df27e8544f/3e1c2/nc-port-scan.png&quot;
+          alt=&quot;Netcat Port Scan&quot;
+          title=&quot;Netcat Port Scan&quot;
+          loading=&quot;lazy&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+At the very end, we can see that port 4000 was connected to successfully.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Serving up a Webpage for One Connection&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Want to send a message through a webpage that can only be view once?  Ok, yeah I know. Who would want to do that?
+(Just work with me here!) &lt;code class=&quot;language-text&quot;&gt;netcat&lt;/code&gt; can do that!&lt;/p&gt;
+&lt;p&gt;Create a file called &lt;code class=&quot;language-text&quot;&gt;message.txt&lt;/code&gt; with the following content:    &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt; This message will self destruct as soon as you hit the refresh button.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Execute the following:&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;{ echo -ne &amp;quot;HTTP/1.0 200 OK\r\nContent-Length: $(wc -c &amp;lt;message.txt)\r\n\r\n&amp;quot;; cat message.txt; } | nc -l 8080&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Now, if I open up a browser and point to ’&lt;a href=&quot;http://localhost:8080&amp;#x27;&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;http://localhost:8080’&lt;/a&gt;, I will see my message.  If I refresh the page,
+the page goes away.  &lt;code class=&quot;language-text&quot;&gt;netcat&lt;/code&gt; serves the file and exits as soon as the first client hits it.  Pretty cool, huh?&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Creating a Backdoor&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Using &lt;code class=&quot;language-text&quot;&gt;netcat&lt;/code&gt; with the &lt;code class=&quot;language-text&quot;&gt;-e&lt;/code&gt; flag,  you can create backdoors to your systems (&lt;code class=&quot;language-text&quot;&gt;-e&lt;/code&gt; forks the process and redirects input/output).  It is possible to make any process a network server, listen on a port, and pipe the input to that process.  This is similar to SSH reverse tunneling.&lt;/p&gt;
+&lt;p&gt;Let’s say you have 2 computers on the same network.&lt;br&gt;
+On the 1st computer, run:   &lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;nc -l -p 1777 -e /bin/sh&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;On the 2nd computer, run:    &lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;nc &amp;lt;IP_ADDRESS_OF_1ST_COMPUTER&amp;gt; 1777&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Now, type any shell command like &lt;code class=&quot;language-text&quot;&gt;ls&lt;/code&gt; or &lt;code class=&quot;language-text&quot;&gt;touch i_see_you.txt&lt;/code&gt; and see the commands get executed on the first computer.  Way cool!   &lt;/p&gt;
+&lt;p&gt;I didn’t know anything about &lt;code class=&quot;language-text&quot;&gt;netcat&lt;/code&gt; before today, but the tiny bit I’ve discovered tells me it’s going to be a valuable tool to have in my toolbox.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[My First 3 Open Source Contributions]]></title><description><![CDATA[Getting started in an open source project can be incredibly intimidating.]]></description><link>https://lumen.netlify.com/posts/my-first-three-open-source-contributions</link><guid isPermaLink="false">https://lumen.netlify.com/posts/my-first-three-open-source-contributions</guid><pubDate>Wed, 30 Nov 2016 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Getting started in an open source project can be incredibly intimidating.  You may ask yourself questions like:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt; Which project should I get involved with?&lt;br&gt;
+How do I get started?&lt;br&gt;
+Are the moderators nice?    &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;You hear stories about &lt;a href=&quot;http://www.theregister.co.uk/2016/07/11/linus_torvalds_in_sweary_rant_about_punctuation_in_kernel_comments/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Linus Torvalds’ brutal comments&lt;/a&gt; and you don’t want to be on the other end of those types of emails.  Well, not every project is the
+Linux Kernel and there are some really great communities out there able and willing to help someone starting out.
+I wanted to share my experiences with my first 3 open source contributions.&lt;/p&gt;
+&lt;h2 id=&quot;duckduckgo&quot;&gt;&lt;a href=&quot;#duckduckgo&quot; aria-label=&quot;duckduckgo permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;DuckDuckGo&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://duckduckgo.com/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;DuckDuckGo&lt;/a&gt; is a Google alternative.  The company wants to &lt;a href=&quot;https://duckduckgo.com/about/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;provide a search engine&lt;/a&gt; that respects your privacy and doesn’t
+track the user.  They have the notion of an &lt;a href=&quot;https://docs.duckduckhack.com/welcome/how-ias-work.html&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Instant Answer&lt;/a&gt; which is essentially a result to a search query.  One form of an Instant Answer is a &lt;a href=&quot;https://docs.duckduckhack.com/walkthroughs/programming-syntax.html&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;cheat sheet&lt;/a&gt;.  Contributing a cheat sheet to the search platform is a fairly simple way to make your first contribution.  They also have a great community on Slack, where I was personally emailed by their community manager after signing up.  The community manager introduced himself and warmly welcomed me into the group.  This personal touch was really indicative of the type of community being harbored.  &lt;/p&gt;
+&lt;p&gt;DuckDuckGo also has &lt;a href=&quot;https://docs.duckduckhack.com/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;fantastic documentation on how to get started&lt;/a&gt;.  They use Codio, a cloud IDE which makes &lt;a href=&quot;https://docs.duckduckhack.com/welcome/setup-dev-environment.html&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;setting up a development environment&lt;/a&gt; extremely easy.  I was interested in a contributing a &lt;a href=&quot;https://www.perforce.com/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Perforce&lt;/a&gt; cheat sheet where a user can easily find a reference to the command line client.  In a couple of hours, I was able to read through the documentation, set up the environment and make my first contribution.  The community was very attentive and gave friendly feedback.  After a couple of days, my Perforce cheat sheet was on their staging site.  About a week later, it was on the production site.  &lt;/p&gt;
+&lt;p&gt;So a user can now enter a search like this:&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 620px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/210b7f3ab0481246b0cb34009888f0de/a5ed1/ddg-search.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 50.32258064516129%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAAsTAAALEwEAmpwYAAABTUlEQVQoz41RS0vDQBjsL/OHePegN8GTl55F9FQv3sSTgqCC4AN84EHQo0LSxEopUhObNJs22UceHXdjSkxNSsMO32a/7HwzkwZjDLOglBaVc7AJwAEwEZV7FXcbVYcFmQD1CYZXRxgc7yOwv0qkCxOqCzQMwaUy62AH35cn6O9tor+1lhEy1V9UIc0/pjQES1L0mitwnu9ALlbRW19CSMZZDLSGtFYhlxAyt+DxGubpLh5ay/DODiEmk/kKC0W0NJUQAtd1QUZjfOqvsLsGHHeIgeMgCIIZNwUqCbm0ZFkWDMOAaZrQ2ibeP7po6zp0CTWI57anxKGMKCNUB6o5i782uKr5oGl+ofxpUwgmw4nlEvGvQs/zMou+72d7BSEE0jRFkiS1iBPJIh+t/4bm+QbutZv/hKqqd6UmjuO5iKIISIGObaJ1u42XzhN+AIca95FPXE6jAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/210b7f3ab0481246b0cb34009888f0de/01472/ddg-search.webp 240w,
+/static/210b7f3ab0481246b0cb34009888f0de/222bd/ddg-search.webp 480w,
+/static/210b7f3ab0481246b0cb34009888f0de/5077d/ddg-search.webp 620w&quot;
+          sizes=&quot;(max-width: 620px) 100vw, 620px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/210b7f3ab0481246b0cb34009888f0de/0783d/ddg-search.png 240w,
+/static/210b7f3ab0481246b0cb34009888f0de/782f4/ddg-search.png 480w,
+/static/210b7f3ab0481246b0cb34009888f0de/a5ed1/ddg-search.png 620w&quot;
+          sizes=&quot;(max-width: 620px) 100vw, 620px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/210b7f3ab0481246b0cb34009888f0de/a5ed1/ddg-search.png&quot;
+          alt=&quot;DuckDuckGo Search&quot;
+          title=&quot;DuckDuckGo Search&quot;
+          loading=&quot;lazy&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;And get results like this:&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 960px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/762961f897cbff2e4416880eb7350588/20783/ddg-p4-cheat-sheet.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.725663716814154%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAABz0lEQVQoz61RS67UMBDMKbgCa54QV2INEefiDEiMxPJt32M+mcnkN5N/bMexHTfVHggcgEil6q62q7udKN2/fNwfDl8OSfL5kuVxkuZxWVVxUTLK31zFeVHGWVHEObQsL4D8r/bQP0F/E6XH18lpRUNTk+g70kLQIgV4Ak+B9TSSnRUZJUONrCFyluZxoKltSEwi3L8c9h8i+fM5mdNXavrB1LfKjn1vtRR2ltLqebZaqYBFz/BU1i6LNYu21hjrV8cwfl0dWHnn3kWLEilOU9O2a9/3Xgjhdd96mPrFGL8sS4BmaP2IwZyHOmCMITB/T9EwTqkQkpIkWeu6JphS23ZAS13XBQzDQOM4buAz/+h+miaOzTD0TxEEGAo6n8/r/X6nP2iaJvDxeKSyLEPODblRURQ8AN1uN9Y81wADr4ehlDIYpmlKWZbR9XoNhxl8kXOuMaqq2gz5LDTPdWgGgwXDM498Op3s5XJxKAbgosOEW4wJHKZxWC3kMAt1NLXIeTsNn2DYED5ej9+G1+cGeHhSSgWdmfN5nol/AL8d68wMrvPbIn7Phl8R/MAK3zHNDp03oPMOT7FjPc/zAEy6w3qbjq3CPUz6DcO8jf739wut79w7x2Y9PQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/762961f897cbff2e4416880eb7350588/01472/ddg-p4-cheat-sheet.webp 240w,
+/static/762961f897cbff2e4416880eb7350588/222bd/ddg-p4-cheat-sheet.webp 480w,
+/static/762961f897cbff2e4416880eb7350588/620b9/ddg-p4-cheat-sheet.webp 960w,
+/static/762961f897cbff2e4416880eb7350588/f0a63/ddg-p4-cheat-sheet.webp 1130w&quot;
+          sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/762961f897cbff2e4416880eb7350588/0783d/ddg-p4-cheat-sheet.png 240w,
+/static/762961f897cbff2e4416880eb7350588/782f4/ddg-p4-cheat-sheet.png 480w,
+/static/762961f897cbff2e4416880eb7350588/f570d/ddg-p4-cheat-sheet.png 960w,
+/static/762961f897cbff2e4416880eb7350588/20783/ddg-p4-cheat-sheet.png 1130w&quot;
+          sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/762961f897cbff2e4416880eb7350588/f570d/ddg-p4-cheat-sheet.png&quot;
+          alt=&quot;Perforce Cheat Sheet&quot;
+          title=&quot;Perforce Cheat Sheet&quot;
+          loading=&quot;lazy&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&quot;perforce-patcher&quot;&gt;&lt;a href=&quot;#perforce-patcher&quot; aria-label=&quot;perforce patcher permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Perforce Patcher&lt;/h2&gt;
+&lt;p&gt;Not all open source projects are large official projects.  There are many personal projects out there with a sole author willing to accept help and contributions.  The &lt;a href=&quot;http://controlspace.info/2016/03/patch-utility-for-perforce/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Perforce Patcher&lt;/a&gt;, written by &lt;a href=&quot;https://twitter.com/prbuddha&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Buddha Jyothiprasad&lt;/a&gt;, is JavaFX application that creates patches based on diffs from changelists.  I never had any experience with JavaFX applications but I knew enough Java to read through the code and make basic sense of it.  I wanted to add the ability to start the application with some command line arguments to pre-populate the initial login fields. I made the the change and submitted a &lt;a href=&quot;https://github.com/jbuddha/perforce-patcher/pull/2&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;pull request&lt;/a&gt;.  The author was really nice and asked me to update the README with my changes and merged in my commits.       &lt;/p&gt;
+&lt;h2 id=&quot;gitlab&quot;&gt;&lt;a href=&quot;#gitlab&quot; aria-label=&quot;gitlab permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;GitLab&lt;/h2&gt;
+&lt;p&gt;I’ve been wanting to learn more about the &lt;a href=&quot;http://rubyonrails.org/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Ruby on Rails&lt;/a&gt; framework and know that the best way to learn a new tech stack is to delve into a project using ia project’s .
+GitLab has really thorough &lt;a href=&quot;https://github.com/gitlabhq/gitlabhq/blob/master/CONTRIBUTING.md&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;guide on contributing&lt;/a&gt; and a fairly formalized process.  Their &lt;a href=&quot;https://gitlab.com/gitlab-org/gitlab-development-kit&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;instructions for setting up a development environment&lt;/a&gt; is detailed enough to get started but not overwhelming.  They use an &lt;a href=&quot;https://gitlab.com/gitlab-org/gitlab-ce/issues?label_name%5B%5D=up-for-grabs&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;up-for-grabs&lt;/a&gt; label on their issues which can be picked up and fixed by anyone who has the desire to contribute.  My only issue(no pun intended) is that once someone has claimed it, there doesn’t seem to be a way to know from the list without drilling down to each individual ticket.  I decided to get my feet wet by fixing an &lt;a href=&quot;https://gitlab.com/gitlab-org/gitlab-ce/issues/24554&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;issue&lt;/a&gt; that required a &lt;a href=&quot;https://gitlab.com/lizlam/gitlab-ce/commit/5c747ded7ecc1d7da418a854d12ad2906b173b7b&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;simple text change&lt;/a&gt;.  Picking out low hanging fruit is good way to get acquainted with a project’s workflow and development environment.  I submitted my &lt;a href=&quot;https://gitlab.com/gitlab-org/gitlab-ce/merge_requests/7553&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;merge request&lt;/a&gt; and the moderators were really responsive and enthusiastic.  After a little back and forth, I made my first GitLab contribution.&lt;/p&gt;
+&lt;p&gt;Contributing to open source projects is not as scary as it may seem.  There are a lot of friendly and well run projects that are welcoming to the new contributor.  Helping out smaller projects with a sole author is also a great way to collaborate, learn and not reinvent the wheel.  I hope this encourages you to find a project you’re interested in and to be unafraid to make that first commit.  &lt;/p&gt;</content:encoded></item><item><title><![CDATA[First Impressions of Scuttle! by Jellybean Games]]></title><description><![CDATA[I just received my copy of Scuttle by Jellybean Games.]]></description><link>https://lumen.netlify.com/posts/game-review-scuttle</link><guid isPermaLink="false">https://lumen.netlify.com/posts/game-review-scuttle</guid><pubDate>Fri, 21 Oct 2016 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;I just received my copy of &lt;em&gt;Scuttle!&lt;/em&gt; by &lt;a href=&quot;http://www.jellybean-games.com/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Jellybean Games&lt;/a&gt; in the mail. I backed the &lt;a href=&quot;https://www.kickstarter.com/projects/peterchayward/scuttle-the-pirate-card-game-for-all-ages&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Kickstarter&lt;/a&gt; last April and to be honest, I’m pretty amazed I already have a copy of it in my hands (Kickstarters are notorious for being late to deliver).    &lt;/p&gt;
+&lt;p&gt;Jellybean Games appealed to me because they make family-friendly games.  This has become more important to me since I am a relatively new mom with a young family.  I grew up playing board games and it’s something I definitely want to pass on to my own kids. &lt;/p&gt;
+&lt;p&gt;Before even opening the package, the first thing I have to comment on is the sturdiness of the box.  It is probably one of the best card boxes I’ve seen.  I know that seems like a superficial thing, but a high quality box will help preserve the cards and anyone with kids know - that’s important.  The cards are beautiful.  The graphics are colorful and fun.  My only complaint is I wish the cards were slightly larger (they are approximately 3.5” x 2.25”).  &lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 960px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/4d1b4d3bb431ae05175372d43f888e1a/2a01d/scuttle-cards.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 56.29629629629629%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMEAf/EABYBAQEBAAAAAAAAAAAAAAAAAAIAAf/aAAwDAQACEAMQAAABlyVZdI8s/8QAGhAAAgMBAQAAAAAAAAAAAAAAAQIAAxETIf/aAAgBAQABBQIJhKaeYMax4LGinz//xAAVEQEBAAAAAAAAAAAAAAAAAAAAEf/aAAgBAwEBPwGq/8QAFREBAQAAAAAAAAAAAAAAAAAAEBH/2gAIAQIBAT8Bh//EABkQAAIDAQAAAAAAAAAAAAAAAAABEBExIf/aAAgBAQAGPwKqRiOI02P/xAAZEAADAQEBAAAAAAAAAAAAAAAAAREhUaH/2gAIAQEAAT8hg+IUxYdg98BZ5JSWM//aAAwDAQACAAMAAAAQWw//xAAWEQEBAQAAAAAAAAAAAAAAAAAAEVH/2gAIAQMBAT8QtGP/xAAXEQEBAQEAAAAAAAAAAAAAAAABABEx/9oACAECAQE/EBdtb//EABsQAQADAAMBAAAAAAAAAAAAAAEAESExYXGR/9oACAEBAAE/EBIoQvD9mcqYBEKB4Qs2VFPAEqS1PRDitvk//9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/4d1b4d3bb431ae05175372d43f888e1a/01472/scuttle-cards.webp 240w,
+/static/4d1b4d3bb431ae05175372d43f888e1a/222bd/scuttle-cards.webp 480w,
+/static/4d1b4d3bb431ae05175372d43f888e1a/620b9/scuttle-cards.webp 960w,
+/static/4d1b4d3bb431ae05175372d43f888e1a/28063/scuttle-cards.webp 1440w,
+/static/4d1b4d3bb431ae05175372d43f888e1a/34ef4/scuttle-cards.webp 1920w,
+/static/4d1b4d3bb431ae05175372d43f888e1a/86a17/scuttle-cards.webp 4320w&quot;
+          sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/4d1b4d3bb431ae05175372d43f888e1a/3bc27/scuttle-cards.jpg 240w,
+/static/4d1b4d3bb431ae05175372d43f888e1a/98431/scuttle-cards.jpg 480w,
+/static/4d1b4d3bb431ae05175372d43f888e1a/b3ee8/scuttle-cards.jpg 960w,
+/static/4d1b4d3bb431ae05175372d43f888e1a/b97fe/scuttle-cards.jpg 1440w,
+/static/4d1b4d3bb431ae05175372d43f888e1a/fb329/scuttle-cards.jpg 1920w,
+/static/4d1b4d3bb431ae05175372d43f888e1a/2a01d/scuttle-cards.jpg 4320w&quot;
+          sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+          type=&quot;image/jpeg&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/4d1b4d3bb431ae05175372d43f888e1a/b3ee8/scuttle-cards.jpg&quot;
+          alt=&quot;Scuttle! Cards&quot;
+          title=&quot;Scuttle! Cards&quot;
+          loading=&quot;lazy&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt; &lt;/p&gt;
+&lt;p&gt;Included are rules for 1-5 players (yes, there is a solo variant for 1 player).  My first impression is based on the 2 player variant.  Essentially, you’re trying to win by scoring 21 (much like my favorite casino game).  This is a pirate-themed card game, so you are collecting treasures in the form of doubloons.  The first person to collect 21 doubloon wins.  Of course there are fun ways to prevent others from reaching that goal and also ways to help accelerate your own treasure chest ledger.  &lt;/p&gt;
+&lt;p&gt;Overall, I’m quite pleased with how the Kickstarter was ran (fairly frequent and enthusiastic updates), the quality of the deck and the gameplay.  The game itself is simple enough for kids to learn easily yet there are enough variations to keep the parents interested.  &lt;em&gt;Scuttle!&lt;/em&gt; is going to be a family favorite.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 960px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/e4dedbece80b300dcacb1ff0d1881ae0/5775d/scuttle.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 67.67901922541097%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAOABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAEEAgP/xAAVAQEBAAAAAAAAAAAAAAAAAAABAv/aAAwDAQACEAMQAAABhWVFzHUT/8QAGhABAQEAAwEAAAAAAAAAAAAAAgEDERITMf/aAAgBAQABBQLLMOcgu/Wp1zc9NKa//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAGxAAAgMAAwAAAAAAAAAAAAAAAREAAiEQEiL/2gAIAQEABj8CNr2ShAfXgZs9BuHJ/8QAGxAAAgMBAQEAAAAAAAAAAAAAAAERMUEhUXH/2gAIAQEAAT8hiBrqhy1Nj4RnFDWR1eDU8j4NROss/9oADAMBAAIAAwAAABBL7//EABURAQEAAAAAAAAAAAAAAAAAABAx/9oACAEDAQE/EIf/xAAWEQEBAQAAAAAAAAAAAAAAAAABECH/2gAIAQIBAT8QBdn/xAAcEAEAAwADAQEAAAAAAAAAAAABABEhQVFxscH/2gAIAQEAAT8QfArHh3b+TDo03Lwi6mxKjVsIUqarAadfYQ0oW7fNw4UPpU//2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/e4dedbece80b300dcacb1ff0d1881ae0/01472/scuttle.webp 240w,
+/static/e4dedbece80b300dcacb1ff0d1881ae0/222bd/scuttle.webp 480w,
+/static/e4dedbece80b300dcacb1ff0d1881ae0/620b9/scuttle.webp 960w,
+/static/e4dedbece80b300dcacb1ff0d1881ae0/28063/scuttle.webp 1440w,
+/static/e4dedbece80b300dcacb1ff0d1881ae0/34ef4/scuttle.webp 1920w,
+/static/e4dedbece80b300dcacb1ff0d1881ae0/ceb49/scuttle.webp 3589w&quot;
+          sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/e4dedbece80b300dcacb1ff0d1881ae0/3bc27/scuttle.jpg 240w,
+/static/e4dedbece80b300dcacb1ff0d1881ae0/98431/scuttle.jpg 480w,
+/static/e4dedbece80b300dcacb1ff0d1881ae0/b3ee8/scuttle.jpg 960w,
+/static/e4dedbece80b300dcacb1ff0d1881ae0/b97fe/scuttle.jpg 1440w,
+/static/e4dedbece80b300dcacb1ff0d1881ae0/fb329/scuttle.jpg 1920w,
+/static/e4dedbece80b300dcacb1ff0d1881ae0/5775d/scuttle.jpg 3589w&quot;
+          sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+          type=&quot;image/jpeg&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/e4dedbece80b300dcacb1ff0d1881ae0/b3ee8/scuttle.jpg&quot;
+          alt=&quot;Scuttle&quot;
+          title=&quot;Scuttle&quot;
+          loading=&quot;lazy&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Astrophotography For Under $80]]></title><description><![CDATA[I've always loved looking up at the stars.]]></description><link>https://lumen.netlify.com/posts/astrophotography-for-under-eighty</link><guid isPermaLink="false">https://lumen.netlify.com/posts/astrophotography-for-under-eighty</guid><pubDate>Tue, 20 Oct 2015 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;I’ve always loved looking up at the stars.  As a child, it was one of my many simple pleasures.
+The night sky has often been my companion in times of reflection and solitude.  Being able to
+capture glimpses of these moments is a hobby I always wanted to explore.  So it was with great
+enthusiasm that I researched how to get into astrophotography.  As far as I could tell, I just needed
+a few things: a telescope, a camera and a way to attach the two.&lt;/p&gt;
+&lt;p&gt;Purchasing a telescope for the first time can be a really intimidating thing.  I wasn’t ready
+to spend thousands of dollars on one, but I didn’t want to buy a toy either.  Then I saw a reference
+to the Galileoscope in a &lt;a href=&quot;https://www.kickstarter.com/projects/828758431/messier-observers-planisphere&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Kickstarter project&lt;/a&gt; I was perusing.  &lt;/p&gt;
+&lt;p&gt;The &lt;a href=&quot;http://www.galileoscope.org&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Galileoscope&lt;/a&gt; is a telescope kit you can put together.  It’s basically an educational device
+to learn about optics and you end up with a no frills telescope similar to the one Galileo used.  Many retailers sell the kit for
+about &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mn&gt;50&lt;/mn&gt;&lt;mo separator=&quot;true&quot;&gt;,&lt;/mo&gt;&lt;mi&gt;b&lt;/mi&gt;&lt;mi&gt;u&lt;/mi&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mi&gt;f&lt;/mi&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mi&gt;r&lt;/mi&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mi&gt;o&lt;/mi&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mi&gt;q&lt;/mi&gt;&lt;mi&gt;u&lt;/mi&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mi&gt;c&lt;/mi&gt;&lt;mi&gt;k&lt;/mi&gt;&lt;mi&gt;r&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mi&gt;r&lt;/mi&gt;&lt;mi&gt;c&lt;/mi&gt;&lt;mi&gt;h&lt;/mi&gt;&lt;mo separator=&quot;true&quot;&gt;,&lt;/mo&gt;&lt;mi&gt;I&lt;/mi&gt;&lt;mi&gt;f&lt;/mi&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mi&gt;g&lt;/mi&gt;&lt;mi&gt;u&lt;/mi&gt;&lt;mi&gt;r&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mi&gt;d&lt;/mi&gt;&lt;mi&gt;o&lt;/mi&gt;&lt;mi&gt;u&lt;/mi&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;mi&gt;h&lt;/mi&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;mi&gt;I&lt;/mi&gt;&lt;mi&gt;c&lt;/mi&gt;&lt;mi&gt;o&lt;/mi&gt;&lt;mi&gt;u&lt;/mi&gt;&lt;mi&gt;l&lt;/mi&gt;&lt;mi&gt;d&lt;/mi&gt;&lt;mi&gt;b&lt;/mi&gt;&lt;mi&gt;u&lt;/mi&gt;&lt;mi&gt;y&lt;/mi&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;mi&gt;h&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;mi&gt;d&lt;/mi&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mi&gt;r&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mi&gt;c&lt;/mi&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;mi&gt;l&lt;/mi&gt;&lt;mi&gt;y&lt;/mi&gt;&lt;mi&gt;f&lt;/mi&gt;&lt;mi&gt;r&lt;/mi&gt;&lt;mi&gt;o&lt;/mi&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;mi&gt;w&lt;/mi&gt;&lt;mi&gt;w&lt;/mi&gt;&lt;mi&gt;w&lt;/mi&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;.&lt;/mi&gt;&lt;mi&gt;g&lt;/mi&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mi&gt;l&lt;/mi&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mi&gt;l&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mi&gt;o&lt;/mi&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mi&gt;c&lt;/mi&gt;&lt;mi&gt;o&lt;/mi&gt;&lt;mi&gt;p&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mi mathvariant=&quot;normal&quot;&gt;.&lt;/mi&gt;&lt;mi&gt;o&lt;/mi&gt;&lt;mi&gt;r&lt;/mi&gt;&lt;mi&gt;g&lt;/mi&gt;&lt;mi&gt;f&lt;/mi&gt;&lt;mi&gt;o&lt;/mi&gt;&lt;mi&gt;r&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;50, but after some quick research, I figured out that I could buy them directly from www.galileoscope.org for&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.8888799999999999em;vertical-align:-0.19444em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;mpunct&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.16666666666666666em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;u&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.10764em;&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.02778em;&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.03588em;&quot;&gt;q&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;u&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.03148em;&quot;&gt;k&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.02778em;&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.02778em;&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;h&lt;/span&gt;&lt;span class=&quot;mpunct&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;mspace&quot; style=&quot;margin-right:0.16666666666666666em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.07847em;&quot;&gt;I&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.10764em;&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.03588em;&quot;&gt;g&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;u&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.02778em;&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;u&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;h&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.07847em;&quot;&gt;I&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;u&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.01968em;&quot;&gt;l&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;u&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.03588em;&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;h&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;d&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.02778em;&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.01968em;&quot;&gt;l&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.03588em;&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.10764em;&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.02778em;&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;m&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.02691em;&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.02691em;&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.02691em;&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.03588em;&quot;&gt;g&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.01968em;&quot;&gt;l&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.01968em;&quot;&gt;l&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.02778em;&quot;&gt;r&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.03588em;&quot;&gt;g&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.10764em;&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot;&gt;o&lt;/span&gt;&lt;span class=&quot;mord mathdefault&quot; style=&quot;margin-right:0.02778em;&quot;&gt;r&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;25 each.
+The catch was you needed to purchase a box of 6.  Well, I didn’t need 6 telescopes, so I sent an email out
+to a group of friends in attempt to get 5 other people in on a bulk purchase.  It didn’t take long to get 5 takers and within
+a week I had a box of 6 Galileoscopes in my house.&lt;/p&gt;
+&lt;p&gt;Telescope  ✔&lt;br&gt;
+Cost: &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quot;katex-mathml&quot;&gt;&lt;math xmlns=&quot;http://www.w3.org/1998/Math/MathML&quot;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mn&gt;25&lt;/mn&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding=&quot;application/x-tex&quot;&gt;25 +&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&quot;katex-html&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;base&quot;&gt;&lt;span class=&quot;strut&quot; style=&quot;height:0.72777em;vertical-align:-0.08333em;&quot;&gt;&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;mord&quot;&gt;+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;5 Shipping &amp;#x26; Handling.&lt;/p&gt;
+&lt;p&gt;The Galileoscope needs a standard camera tripod to be mounted on.  I didn’t have one lying around but was able to
+purchase one on Amazon for a relatively cheap price.  I have Amazon Prime, so shipping was free (sort of).&lt;/p&gt;
+&lt;p&gt;Tripod  ✔&lt;br&gt;
+Cost: $25&lt;/p&gt;
+&lt;p&gt;Trying to purchase a camera is just as intimidating as trying to purchase a telescope.  Should I get a point and shoot? Should I get an SLR?&lt;br&gt;
+Then it dawned on me that if I can use my phone camera, I wouldn’t have to worry about the choice.  Now don’t scoff, I have a Motorola Droid
+Mini with a 12 megapixel camera, and although it can’t compete with an SLR - it definitely can hold its on.  So what I really needed was an
+adapter to attach my phone to the telescope.  Again with some help from Amazon, &lt;a href=&quot;http://www.amazon.com/gp/product/B013D2ULO6?keywords=telescope%20phone%20adpater&amp;#x26;qid=1445416268&amp;#x26;ref_=sr_1_sc_1&amp;#x26;sr=8-1-spell&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;I found an adapter&lt;/a&gt; that I thought would do the trick.&lt;/p&gt;
+&lt;p&gt;Phone adapter for telescope  ✔&lt;br&gt;
+Cost:  $25&lt;/p&gt;
+&lt;p&gt;Putting it all together is a little tricky.  You need to make sure the focuser tube is tight on the Galileoscope because the weight of the adapter and phone can cause it to slide.  The phone camera needs to be aligned up with the eyepiece and focusing the telescope with it attached requires a bit
+of patience.  But overall I was quite pleased with the results.  &lt;/p&gt;
+&lt;p&gt;Here’s a photo of the moon:&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 500px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/b41f75050111f9a217efeb3023e4d6e3/48a11/moon.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 121.39999999999999%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAYABQDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAIEBQED/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAABwrljyM4EohwH/8QAGhAAAgMBAQAAAAAAAAAAAAAAAQIAAwQQE//aAAgBAQABBQJVLtZksrSYSEmq/wBTASO//8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAwEBPwEf/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAgEBPwEf/8QAHRAAAQQCAwAAAAAAAAAAAAAAAgABEBESITFBkf/aAAgBAQAGPwLEWt1kVewZdqm4jU//xAAbEAEAAgMBAQAAAAAAAAAAAAABESEAEDFBcf/aAAgBAQABPyE4pOBieqedaGqjAfMeWrp20TW//9oADAMBAAIAAwAAABCAADz/xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAEDAQE/EB//xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAECAQE/EB//xAAbEAEBAAIDAQAAAAAAAAAAAAABERAhAEFRsf/aAAgBAQABPxBvLwG3kg5VFjCn0rDst+HL2DbPXCpdCp2Z/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/b41f75050111f9a217efeb3023e4d6e3/01472/moon.webp 240w,
+/static/b41f75050111f9a217efeb3023e4d6e3/222bd/moon.webp 480w,
+/static/b41f75050111f9a217efeb3023e4d6e3/0ca0c/moon.webp 500w&quot;
+          sizes=&quot;(max-width: 500px) 100vw, 500px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/b41f75050111f9a217efeb3023e4d6e3/3bc27/moon.jpg 240w,
+/static/b41f75050111f9a217efeb3023e4d6e3/98431/moon.jpg 480w,
+/static/b41f75050111f9a217efeb3023e4d6e3/48a11/moon.jpg 500w&quot;
+          sizes=&quot;(max-width: 500px) 100vw, 500px&quot;
+          type=&quot;image/jpeg&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/b41f75050111f9a217efeb3023e4d6e3/48a11/moon.jpg&quot;
+          alt=&quot;moon&quot;
+          title=&quot;moon&quot;
+          loading=&quot;lazy&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;This was a great introductory setup and for less than $80, a worthy route into the world of astrophotography.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Continuous Delivery Fun with Jenkins and a Raspberry Pi]]></title><description><![CDATA[A fun project using Jenkins, LED lights and a Raspberry Pi.]]></description><link>https://lumen.netlify.com/posts/cd-fun-jenkins-rpi</link><guid isPermaLink="false">https://lumen.netlify.com/posts/cd-fun-jenkins-rpi</guid><pubDate>Thu, 10 Sep 2015 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;img src=&quot;/media/rpi_led.jpg&quot; alt=&quot;Raspberry Pi LED project&quot;&gt;&lt;/p&gt;
+&lt;p&gt;It’s no secret that &lt;a href=&quot;https://jenkins-ci.org/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Jenkins&lt;/a&gt; is a great &lt;a href=&quot;https://www.thoughtworks.com/continuous-integration&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;CI&lt;/a&gt; tool for driving build and test automation. The &lt;a href=&quot;https://www.raspberrypi.org/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Raspberry Pi&lt;/a&gt; is a credit card-sized device used for learning about software and hardware, and is incredibly popular as a platform for a variety of DIY projects. Being a fan of both, the proverbial lightbulb turned on (no pun intended) as I thought of a project that would combine the two.&lt;/p&gt;
+&lt;p&gt;Jenkins has a great dashboard that monitors the status of jobs; I thought it would be fun to introduce a physical computing element by using the Raspberry Pi’s GPIO pins and LED lights to monitor the results of Jenkins jobs.&lt;/p&gt;
+&lt;p&gt;My setup is a &lt;a href=&quot;http://www.raspberrypi.org/products/raspberry-pi-2-model-b/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Raspberry Pi 2 Model B&lt;/a&gt; running the Raspbian OS. The first thing I needed to do was figure out how to connect the LED lights that represent the different Jenkins states to the GPIO pins. I’m fairly new to the physical computing space and there are a lot of tutorials out there on how to connect LED lights to a RPi; I went with the non-breadboard, non-soldering route. Using only jumper wires and resistors, I connected up the LEDs then housed all of it in a plastic container that was originally packaging for a baby pacifier (yes, you read that right!).&lt;/p&gt;
+&lt;p&gt;For this project, you’ll need:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1 yellow LED light to represent UNSTABLE status&lt;/li&gt;
+&lt;li&gt;1 blue LED light to represent SUCCESS status&lt;/li&gt;
+&lt;li&gt;1 red LED light to represent FAILURE status&lt;/li&gt;
+&lt;li&gt;9 female-to-female jumper wires&lt;/li&gt;
+&lt;li&gt;3 270-Ohm resistors&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Once you have all the materials, connecting an LED light to a Raspberry Pi is pretty straightforward:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;With a jumper wire, connect one leg of the LED to a &lt;a href=&quot;https://www.raspberrypi.org/documentation/usage/gpio/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;GPIO&lt;/a&gt; pin&lt;/li&gt;
+&lt;li&gt;Connect the other leg to a ground pin using a resistor&lt;br&gt;
+(LED leg -&gt; jumper wire -&gt; resistor -&gt; jumper wire -&gt; ground pin)&lt;/li&gt;
+&lt;li&gt;Repeat this for each LED and keep a note of the GPIO pin numbers &lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The beauty of DIY projects is that you can be as creative or conventional as you’d like. Feel free to use a green LED light to designate a success state (or any color, for that matter) — I decided to stay consistent with the &lt;a href=&quot;https://jenkins.io/blog/2012/03/13/why-does-jenkins-have-blue-balls/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;default blue ball status&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The software bridge will consist of the GPIO module for the Raspberrry Pi and the Jenkins Python API. Using both of these libraries I was able to write a script that checks the latest Jenkins job status and lights up the appropriate LED.&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&quot;https://swarm.workshop.perforce.com/files/guest/liz_lam/jenkins-rpi-led-status&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;code&lt;/a&gt; for this project is located in the Perforce Workshop.&lt;/p&gt;
+&lt;p&gt;Feel free to branch it and modify it for your own Continuous Delivery fun!&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;This post was &lt;a href=&quot;https://www.perforce.com/blog/150910/continuous-delivery-fun-jenkins-raspberry-pi&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;originally published&lt;/a&gt; on the Perforce Corporate Blog.&lt;/em&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Girl Geek Thoughts - Mentorship]]></title><description><![CDATA[My first tech mentor was named Simon.]]></description><link>https://lumen.netlify.com/posts/girl-geek-thoughts-mentorship</link><guid isPermaLink="false">https://lumen.netlify.com/posts/girl-geek-thoughts-mentorship</guid><pubDate>Fri, 10 Oct 2014 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;My first tech mentor was named Simon. He sat me down in front a computer running MS-DOS when I was 9 years old. He encouraged me to explore the system using the &lt;code class=&quot;language-text&quot;&gt;cd&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;dir&lt;/code&gt; commands. He instructed me to look for files ending in &lt;code class=&quot;language-text&quot;&gt;exe&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;bat&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;com&lt;/code&gt; in order to run them. He taught me how to copy, move and rename files. He showed me his CAD drawings and how they related to his work with machinery. He was the best mentor a little girl could have. He was patient, understanding, enthusiastic, and he is also my father.&lt;/p&gt;
+&lt;p&gt;I have heard a lot about the Women in Tech movements over the years. I really love that there are more events and resources for women today, both young and mature, to advance their careers and raise awareness. Perforce has also participated in some of these events. In December of 2011, we hosted &lt;a href=&quot;http://bayareagirlgeekdinners.com/bay-area-girl-geek-dinner-14-sponsored-by-perforce/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Bay Area Girl Geek Dinner #14&lt;/a&gt;.  It was an &lt;a href=&quot;http://bayareagirlgeekdinners.com/notes-from-perforce-girl-geek-dinner/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;awesome event&lt;/a&gt;, so I can’t tell you how pleased I was to hear we were going to have another one. I also thought it was impeccable timing that we sponsored &lt;a href=&quot;http://bayareagirlgeekdinners.com/perforce-girl-geek-dinner-2014/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Girl Geek Dinner #64&lt;/a&gt; shortly after Google released &lt;a href=&quot;http://googleblog.blogspot.com/2014/05/getting-to-work-on-diversity-at-google.html&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;statistics&lt;/a&gt; regarding the diversity in their workforce. It was interesting to read that women make up about 18% of all computer science graduates in the U.S. I was a CS major towards the end of the first dot com bubble, so for me the numbers were closer to 28%.&lt;/p&gt;
+&lt;p&gt;I am almost certain I would not have pursued a technical degree if it wasn’t for my father.&lt;/p&gt;
+&lt;p&gt;Mentorship is key. It’s important to encourage and be available to others. This can sometimes be difficult, especially when dealing with aggressive deadlines and maneuvering around in the sometimes crazy world called “the Software Industry.” At Perforce, I’ve been able to work with students from &lt;a href=&quot;http://www.girlsinc.org/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Girls Inc.&lt;/a&gt; and graduates from &lt;a href=&quot;http://www.hackbrightacademy.com/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Hackbright Academy&lt;/a&gt;. Mentorship comes in many forms and it doesn’t necessarily need to be formalized. A little bit can go a long way. As a woman in a tech role, I am proud to be a part of a company that also gives me the opportunity to participate.&lt;/p&gt;
+&lt;p&gt;Oh, and thanks Dad.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;This article was &lt;a href=&quot;http://www.perforce.com/blog/141010/girl-geek-thoughts-mentorship&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;originally published&lt;/a&gt; on the Perforce Corporate Blog.&lt;/em&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Run Perforce and Your Website on a Raspberry Pi]]></title><description><![CDATA[Are you looking for a cheap way to run your personal Perforce server?]]></description><link>https://lumen.netlify.com/posts/run-p4d-and-website-on-rpi</link><guid isPermaLink="false">https://lumen.netlify.com/posts/run-p4d-and-website-on-rpi</guid><pubDate>Mon, 18 Feb 2013 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Are you looking for a cheap way to run your personal Perforce server? Need a quick and dirty way to serve your website from it? This could be your next easy Raspberry Pi 2 project.&lt;/p&gt;
+&lt;p&gt;1.) On your Raspberry Pi, run:    &lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;wget ftp://ftp.perforce.com/perforce/r15.2/bin.linux26armhf/p4d&lt;/code&gt;&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;wget ftp://ftp.perforce.com/perforce/r15.2/bin.linux26armhf/p4&lt;/code&gt;    &lt;/p&gt;
+&lt;p&gt;2.) Change permissions so that the files are executable:    &lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;chmod +x p4&lt;/code&gt;&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;chmod +x p4d&lt;/code&gt;    &lt;/p&gt;
+&lt;p&gt;3.) Move the files to the bin directory:&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;sudo mv p4* /usr/local/bin&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;4.) Start p4d:&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;mkdir /home/pi/p4root&lt;/code&gt;
+&lt;code class=&quot;language-text&quot;&gt;p4d -r /home/pi/p4root -p raspberrypi:1666 -d&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;5.) Create a Perforce workspace:    &lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;mkdir /home/pi/p4client&lt;/code&gt;&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;cd /home/pi/p4clienti p4 -p raspberrypi:1666 client&lt;/code&gt;   &lt;/p&gt;
+&lt;p&gt;Note: vim will start, perform a :wq [enter]&lt;/p&gt;
+&lt;p&gt;6.) Create a test index.html file:&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;echo &amp;quot;&amp;lt;html&amp;gt; Hello World! &amp;lt;/html&amp;gt;&amp;quot; &amp;gt; index.html&lt;/code&gt;   &lt;/p&gt;
+&lt;p&gt;7.) Submit it to your Perforce server:&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;p4 -p raspberrypi:1666 add index.html&lt;/code&gt;
+&lt;code class=&quot;language-text&quot;&gt;p4 -p raspberrypi:1666 submit -d &amp;quot;Adding index.html to my raspberry pi p4 server&amp;quot;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;8.) Start the builtin python HTTP server that comes with the Raspian image:&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;python -m SimpleHTTPServer&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;9.) Open a browser and point to &lt;a href=&quot;http://127.0.0.1:8000&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;http://127.0.0.1:8000&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Now you have a Perforce server and your versioned website running on your Raspberry Pi.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;This is a slightly updated article that was &lt;a href=&quot;https://www.perforce.com/blog/140228/run-p4d-website-raspberry-pi&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;originally published&lt;/a&gt; on the Perforce Corporate Blog.&lt;/em&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Directories are Folders]]></title><description><![CDATA[I recently had the opportunity to spend some time with our Girls Inc. marketing intern.]]></description><link>https://lumen.netlify.com/posts/directories-are-folders</link><guid isPermaLink="false">https://lumen.netlify.com/posts/directories-are-folders</guid><pubDate>Tue, 21 Aug 2012 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;I recently had the opportunity to spend some time with our &lt;a href=&quot;http://www.girlsinc.org/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Girls Inc.&lt;/a&gt; marketing intern. She is a junior from one of our local high schools and had an interest in getting some hands-on Perforce exposure. I only had an hour so I kept my goals simple. I wanted to teach her how to create her very first “Hello World” shell script, check it into the depot, make edits, and view revision history with some of our tools.&lt;/p&gt;
+&lt;p&gt;The first thing I asked her to do was to open a terminal window and navigate to a certain directory using the cd command. With a puzzled look, she asked,&lt;/p&gt;
+&lt;p&gt;“What’s a directory?”     &lt;/p&gt;
+&lt;p&gt;“A directory is where your files reside.”&lt;/p&gt;
+&lt;p&gt;She still looked puzzled.&lt;/p&gt;
+&lt;p&gt;“It’s basically a folder. Do you know what a folder is?”&lt;/p&gt;
+&lt;p&gt;“Oh yes, I know what a folder is!”&lt;/p&gt;
+&lt;p&gt;I can’t tell you how surreal this moment was for me. I was her age when Windows 95 came out. I recall creating folders in the GUI and opening DOS prompts to check that a directory had actually been created. I knew what directories were, but folders I was suspicious of. This went on for some time before I finally trusted that creating folders did indeed make directories. I take this knowledge for granted and then realized that many &lt;a href=&quot;https://en.wikipedia.org/wiki/Command-line_interface&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;CLI&lt;/a&gt; commands won’t make sense unless you know what a directory is.&lt;/p&gt;
+&lt;p&gt;Next step was to show her how to use VI to create and edit her first HelloWorld.sh. I was surprised and proud that she was able to maneuver around in VI fairly easily. Using &lt;a href=&quot;https://www.perforce.com/product/components/perforce-visual-client&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;P4V&lt;/a&gt;, she marked the shell script for add and submitted the file to one of our test depots. I showed her how to view revision history using &lt;a href=&quot;Revision%20Graph&quot;&gt;Revision Graph&lt;/a&gt;, &lt;a href=&quot;https://www.perforce.com/support/tutorial-video-library/video/using-time-lapse-view&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Time-lapse View&lt;/a&gt; and &lt;a href=&quot;https://www.perforce.com/product/components/perforce-visual-merge-and-diff-tools&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;P4Merge&lt;/a&gt;. She was particularly interested in seeing diffs with P4Merge referring to it as “cool.” Which I consider a big win coming from a teenager! Finally, I showed her how to execute the same steps using our p4 command line client.&lt;/p&gt;
+&lt;p&gt;Our hour was up and I was happy to cover what we did. I’m constantly amazed by the learning experiences I have by working at Perforce. I initially set out to teach our intern about Perforce. She ended up giving me insights about the software and technology experience for a teenager in 2012. And trust me, they’re not checking what happens after a folder gets created.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;This is article was &lt;a href=&quot;https://www.perforce.com/blog/120821/directories-are-folders&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;originally published&lt;/a&gt; on the Perforce Corporate Blog.&lt;/em&gt;&lt;/p&gt;</content:encoded></item></channel></rss>

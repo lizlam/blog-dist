@@ -1,4 +1,381 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[blog by grepliz]]></title><description><![CDATA[mostly technical musings]]></description><link>https://lumen.netlify.com</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 03 Dec 2019 22:21:49 GMT</lastBuildDate><item><title><![CDATA[Explore and Delete Files in vim]]></title><description><![CDATA[Did you know that you are not just restricted to editing in vim?]]></description><link>https://lumen.netlify.com/posts/vim-explore-delete</link><guid isPermaLink="false">https://lumen.netlify.com/posts/vim-explore-delete</guid><pubDate>Mon, 02 Dec 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Hello World! I’m back to talk to about my favorite editor.  &lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[blog by grepliz]]></title><description><![CDATA[mostly technical musings]]></description><link>https://lumen.netlify.com</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 02 May 2020 22:07:25 GMT</lastBuildDate><item><title><![CDATA[3 Git Aliases I Can't Live Without]]></title><description><![CDATA[3 Git Aliases I Can't Live Without]]></description><link>https://lumen.netlify.com/posts/three-git-alias</link><guid isPermaLink="false">https://lumen.netlify.com/posts/three-git-alias</guid><pubDate>Mon, 06 Apr 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Using &lt;code class=&quot;language-text&quot;&gt;git&lt;/code&gt; on the command line is by far my preferred way.  Every time someone asks me something about GitHub Desktop, Sourcetree, SmartGit, TortoiseGit or any git reptile for that matter usually results in a blank face.  &lt;/p&gt;
+&lt;p&gt;But as much as I find the native &lt;code class=&quot;language-text&quot;&gt;git&lt;/code&gt; command line client sufficient for most of my everyday tasks, there are several aliases I just can’t live without.&lt;/p&gt;
+&lt;h1 id=&quot;print-where-you-are-using-pwb&quot;&gt;&lt;a href=&quot;#print-where-you-are-using-pwb&quot; aria-label=&quot;print where you are using pwb permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Print where you are using &lt;code class=&quot;language-text&quot;&gt;pwb&lt;/code&gt;&lt;/h1&gt;
+&lt;p&gt;Inspired by &lt;code class=&quot;language-text&quot;&gt;pwd&lt;/code&gt; which will &lt;strong&gt;p&lt;/strong&gt;rint &lt;strong&gt;w&lt;/strong&gt;orking &lt;strong&gt;d&lt;/strong&gt;irectory, &lt;code class=&quot;language-text&quot;&gt;pwb&lt;/code&gt; &lt;strong&gt;p&lt;/strong&gt;rints the &lt;strong&gt;w&lt;/strong&gt;orking &lt;strong&gt;b&lt;/strong&gt;ranch. This is especially useful when I’m using branches with particularly long names. &lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;alias pwb=&amp;#39;git rev-parse --abbrev-ref HEAD&amp;#39;&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;bash-3.2$ pwb
+a-very-long-branch-name
+bash-3.2$ git pull origin `pwb`  &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h1 id=&quot;check-out-a-branch-using-cb&quot;&gt;&lt;a href=&quot;#check-out-a-branch-using-cb&quot; aria-label=&quot;check out a branch using cb permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Check out a branch using &lt;code class=&quot;language-text&quot;&gt;cb&lt;/code&gt;&lt;/h1&gt;
+&lt;p&gt;Creating an alias to check out a branch may seem a little silly, but if you have many branches with names like JIRA-PRODUCT1-398539 and JIRA-PRODUCT2-234323. switching back and forth is quite cumbersome.  There is the &lt;code class=&quot;language-text&quot;&gt;git checkout -&lt;/code&gt; method which will checkout the last branch you checked out.  This is a handy trick but with the powers of &lt;code class=&quot;language-text&quot;&gt;fzf&lt;/code&gt; and a few chained commands, there is an even more handy way.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/junegunn/fzf&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;fzf&lt;/code&gt;&lt;/a&gt; is a fuzzy finder utility that is blazingly fast and flexible.&lt;br&gt;
+If you haven’t already, install it now!!!&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;alias cb=&amp;#39;git branch | fzf --header Checkout | xargs git checkout&amp;#39;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/d110b27c27e424995852608d04157e9a/cb_alias.gif&quot; alt=&quot;using &amp;#x60;cb&amp;#x60; alias&quot;&gt;&lt;/p&gt;
+&lt;h1 id=&quot;merge-a-branch-using-mb&quot;&gt;&lt;a href=&quot;#merge-a-branch-using-mb&quot; aria-label=&quot;merge a branch using mb permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Merge a branch using &lt;code class=&quot;language-text&quot;&gt;mb&lt;/code&gt;&lt;/h1&gt;
+&lt;p&gt;As described above, branches with long names are just a pain.  Merging long named branches is just as cumbersome as checking them out.  Sure, you can copy and paste, but even that experience can be improved. In the same spirit as the &lt;code class=&quot;language-text&quot;&gt;cb&lt;/code&gt; alias, using &lt;code class=&quot;language-text&quot;&gt;fzf&lt;/code&gt; and a few piped commands will make this repetitive task a little better.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;alias mb=&amp;#39;git branch | fzf --header Merge | xargs git merge&amp;#39;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/b1216c16491a9447349e0f954fe402d4/mb_alias.gif&quot; alt=&quot;using &amp;#x27;mb&amp;#x27; alias&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Since &lt;code class=&quot;language-text&quot;&gt;git&lt;/code&gt; is just another CLI. There are endless possibilities on how to improve its usage and tailor it to your own personal preferences.  &lt;/p&gt;</content:encoded></item><item><title><![CDATA[Make Your Basic CSS Grids Internet Explorer Proof]]></title><description><![CDATA[Don't let Internet Explorer get you down.]]></description><link>https://lumen.netlify.com/posts/css-grid-internet-explorer</link><guid isPermaLink="false">https://lumen.netlify.com/posts/css-grid-internet-explorer</guid><pubDate>Wed, 26 Feb 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;It’s happened to all of us.  The UX designer hands over a fairly complex UI mockup.  You spend days working on your front end feature.  You do your best to make it look as pixel perfect to the mockup as possible.  CSS grids are a joy to work with and implementing complex layouts suddenly become child’s play.&lt;/p&gt;
+&lt;p&gt;And then it happens.&lt;/p&gt;
+&lt;p&gt;You remember your company still supports Internet Explorer, so you quickly fire up the page in IE. &lt;/p&gt;
+&lt;p&gt;The look of horror drops over your face.  All the fields and labels are all over the place and nothing is as it &lt;em&gt;should&lt;/em&gt; appear.   &lt;/p&gt;
+&lt;p&gt;You raise your fists in the air asking:&lt;/p&gt;
+&lt;p&gt;“Why?! Why?! Why?!”&lt;/p&gt;
+&lt;p&gt;After a bit of research (i.e. googling around), you realize the grid styling implemented in IE does not work the same as the modern browser.  &lt;/p&gt;
+&lt;p&gt;Let’s start with a simple example that illustrates what can happen.&lt;/p&gt;
+&lt;p&gt;Suppose you had the following snippet of HTML:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;lt;div&amp;gt;
+  &amp;lt;div&amp;gt;First Item&amp;lt;/div&amp;gt;
+  &amp;lt;div&amp;gt;Second Item&amp;lt;/div&amp;gt;
+  &amp;lt;div&amp;gt;Third Item&amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;As you might expect, it would render to the webpage to look something like:&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 584px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/f0fd6a293dfdb172cc516a49dd0f38fd/3064a/grid-rows.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 13.013698630136986%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAIAAAAcOLh5AAAACXBIWXMAAAsSAAALEgHS3X78AAAAI0lEQVQI12N4/fr1X3IBw/Xr1798+fKfLMDw9u1boBnkaQYAV1GxynMJC8EAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/f0fd6a293dfdb172cc516a49dd0f38fd/01472/grid-rows.webp 240w,
+/static/f0fd6a293dfdb172cc516a49dd0f38fd/222bd/grid-rows.webp 480w,
+/static/f0fd6a293dfdb172cc516a49dd0f38fd/d0231/grid-rows.webp 584w&quot;
+          sizes=&quot;(max-width: 584px) 100vw, 584px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/f0fd6a293dfdb172cc516a49dd0f38fd/0783d/grid-rows.png 240w,
+/static/f0fd6a293dfdb172cc516a49dd0f38fd/782f4/grid-rows.png 480w,
+/static/f0fd6a293dfdb172cc516a49dd0f38fd/3064a/grid-rows.png 584w&quot;
+          sizes=&quot;(max-width: 584px) 100vw, 584px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/f0fd6a293dfdb172cc516a49dd0f38fd/3064a/grid-rows.png&quot;
+          alt=&quot;Divs in rows&quot;
+          title=&quot;Divs in rows&quot;
+          loading=&quot;lazy&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;By adding a container class to the outer div and defining the container as a grid, we can arrange the items in columns instead of rows.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;HTML&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;lt;div class=&amp;quot;container&amp;quot;&amp;gt;
+  &amp;lt;div&amp;gt;First Item&amp;lt;/div&amp;gt;
+  &amp;lt;div&amp;gt;Second Item&amp;lt;/div&amp;gt;
+  &amp;lt;div&amp;gt;Third Item&amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;CSS&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;.container {
+  display: grid;
+  grid-template-columns: 100px 100px 100px;
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 292px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/d1f767f354fbb4f59081f6d0d1df77f7/2405d/grid-columns.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 32.534246575342465%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAIAAACHqfpvAAAACXBIWXMAAAsSAAALEgHS3X78AAAAcUlEQVQY08WNvQqAIBhFff8XFEnEP0QFF3EQlezmEEFtDZ1JzncuEiGE1ppzLqUcY8w5SymMMeccjFKKUuq9h0cJj3hb1FoJohBCjNFa23tH1FrzC5iUkjEGV/icM5Zhgcc5nh8g+43L7g9e/beffxsfBPKYAR/C5tEAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/d1f767f354fbb4f59081f6d0d1df77f7/01472/grid-columns.webp 240w,
+/static/d1f767f354fbb4f59081f6d0d1df77f7/e1588/grid-columns.webp 292w&quot;
+          sizes=&quot;(max-width: 292px) 100vw, 292px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/d1f767f354fbb4f59081f6d0d1df77f7/0783d/grid-columns.png 240w,
+/static/d1f767f354fbb4f59081f6d0d1df77f7/2405d/grid-columns.png 292w&quot;
+          sizes=&quot;(max-width: 292px) 100vw, 292px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/d1f767f354fbb4f59081f6d0d1df77f7/2405d/grid-columns.png&quot;
+          alt=&quot;Grid in columns&quot;
+          title=&quot;Grid in columns&quot;
+          loading=&quot;lazy&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;So what is happening here?&lt;/p&gt;
+&lt;p&gt;In the container class, we are saying we want the display to be a grid.
+We also want the grid to be in 3 columns of size 100px.  The children (in our case, the 3 inner divs) of this container div will fall into those columns automatically.&lt;/p&gt;
+&lt;p&gt;Now fire up this same page in Internet Explorer and what do you get?&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 584px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/f0fd6a293dfdb172cc516a49dd0f38fd/3064a/grid-rows.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 13.013698630136986%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAIAAAAcOLh5AAAACXBIWXMAAAsSAAALEgHS3X78AAAAI0lEQVQI12N4/fr1X3IBw/Xr1798+fKfLMDw9u1boBnkaQYAV1GxynMJC8EAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/f0fd6a293dfdb172cc516a49dd0f38fd/01472/grid-rows.webp 240w,
+/static/f0fd6a293dfdb172cc516a49dd0f38fd/222bd/grid-rows.webp 480w,
+/static/f0fd6a293dfdb172cc516a49dd0f38fd/d0231/grid-rows.webp 584w&quot;
+          sizes=&quot;(max-width: 584px) 100vw, 584px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/f0fd6a293dfdb172cc516a49dd0f38fd/0783d/grid-rows.png 240w,
+/static/f0fd6a293dfdb172cc516a49dd0f38fd/782f4/grid-rows.png 480w,
+/static/f0fd6a293dfdb172cc516a49dd0f38fd/3064a/grid-rows.png 584w&quot;
+          sizes=&quot;(max-width: 584px) 100vw, 584px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/f0fd6a293dfdb172cc516a49dd0f38fd/3064a/grid-rows.png&quot;
+          alt=&quot;Divs in rows&quot;
+          title=&quot;Divs in rows&quot;
+          loading=&quot;lazy&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;As you probably guessed, the items are back to the default style without the grid columns.   &lt;/p&gt;
+&lt;p&gt;Internet Explorer’s native grid is different and there isn’t necessarily an easy one to one mapping for every CSS grid feature.  But with some simple cases like this, there is a simple solution.&lt;/p&gt;
+&lt;p&gt;First, we need to add the Microsoft equivalent to the container grid.&lt;/p&gt;
+&lt;p&gt;Excerpt:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;  display: -ms-grid; 
+  -ms-grid-columns: 100px 100px 100px;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Unlike CSS Grids, the children elements will not automatically align into the columns.  Each child needs to be numbered via a style and have that style applied to the element.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;CSS&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;.container {
+  display: grid;
+  grid-template-columns: 100px 100px 100px;
+  display: -ms-grid; 
+  -ms-grid-columns: 100px 100px 100px;
+}
+
+.first {
+  -ms-grid-column: 1;
+}
+
+.second {
+  -ms-grid-column: 2;
+}
+
+.third {
+  -ms-grid-column: 3;
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;HTML&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;lt;div class=&amp;quot;container&amp;quot;&amp;gt;
+  &amp;lt;div class=&amp;quot;first&amp;quot;&amp;gt;First Item&amp;lt;/div&amp;gt;
+  &amp;lt;div class=&amp;quot;second&amp;quot;&amp;gt;Second Item&amp;lt;/div&amp;gt;
+  &amp;lt;div class=&amp;quot;third&amp;quot;&amp;gt;Third Item&amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Fire it up in Internet Explorer and you have the column layout as you would expect.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 292px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/d1f767f354fbb4f59081f6d0d1df77f7/2405d/grid-columns.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 32.534246575342465%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAIAAACHqfpvAAAACXBIWXMAAAsSAAALEgHS3X78AAAAcUlEQVQY08WNvQqAIBhFff8XFEnEP0QFF3EQlezmEEFtDZ1JzncuEiGE1ppzLqUcY8w5SymMMeccjFKKUuq9h0cJj3hb1FoJohBCjNFa23tH1FrzC5iUkjEGV/icM5Zhgcc5nh8g+43L7g9e/beffxsfBPKYAR/C5tEAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/d1f767f354fbb4f59081f6d0d1df77f7/01472/grid-columns.webp 240w,
+/static/d1f767f354fbb4f59081f6d0d1df77f7/e1588/grid-columns.webp 292w&quot;
+          sizes=&quot;(max-width: 292px) 100vw, 292px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/d1f767f354fbb4f59081f6d0d1df77f7/0783d/grid-columns.png 240w,
+/static/d1f767f354fbb4f59081f6d0d1df77f7/2405d/grid-columns.png 292w&quot;
+          sizes=&quot;(max-width: 292px) 100vw, 292px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/d1f767f354fbb4f59081f6d0d1df77f7/2405d/grid-columns.png&quot;
+          alt=&quot;Grid in columns&quot;
+          title=&quot;Grid in columns&quot;
+          loading=&quot;lazy&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;It doesn’t hurt to have both grid styles in your CSS. The browser will simple ignore what it doesn’t know.  You can also do a similar thing for &lt;code class=&quot;language-text&quot;&gt;grid-template-rows&lt;/code&gt;.  &lt;/p&gt;
+&lt;p&gt;In conclusion, although it’s not perfect, some of the CSS Grid features map to MS Grid.  Understanding how they map will help make your pages more robust and consistent looking across browsers.&lt;/p&gt;
+&lt;p&gt;*NOTE: I’m using Internet Explorer 11.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Not Defined vs. Undefined in JavaScript]]></title><description><![CDATA[Undefined vs. Not Defined.]]></description><link>https://lumen.netlify.com/posts/undefined-notdefined</link><guid isPermaLink="false">https://lumen.netlify.com/posts/undefined-notdefined</guid><pubDate>Wed, 29 Jan 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;There are two conditions that are closely worded but mean very different things in JavaScript.  A variable can be &lt;em&gt;undefined&lt;/em&gt; vs. &lt;em&gt;not defined&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Let’s open up your browser’s console and take a closer look.&lt;/p&gt;
+&lt;p&gt;Suppose you type &lt;code class=&quot;language-text&quot;&gt;a + b&lt;/code&gt; and hit &lt;code class=&quot;language-text&quot;&gt;ENTER&lt;/code&gt;.  You will see something like the following:&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 432px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/7dd43d8bb48e785a7a18c39803747ebb/2bff6/not-defined.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 22.916666666666668%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAIAAADKYVtkAAAACXBIWXMAABYlAAAWJQFJUiTwAAAApElEQVQY052NSwuEMAyE+///mHpSwYN4UKv4flTQ1rpoZxMW9rSnDR9DmAwToY2x1uz6eICHhvSLc7/1szyPOKrqbttX26LrsG0YBowj5hl9z0oohWnCsrBPUJKgpDHiktIVBcIQnoc4RhDA9xFF7CQJpORoWaKukeegZJYhTblaKXHvB6zlYvrQNAyl6eG6MnQyhvU8GVqI62JTa3Fo45zDX/MGUG0e/cimHKMAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/7dd43d8bb48e785a7a18c39803747ebb/01472/not-defined.webp 240w,
+/static/7dd43d8bb48e785a7a18c39803747ebb/bfd2c/not-defined.webp 432w&quot;
+          sizes=&quot;(max-width: 432px) 100vw, 432px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/7dd43d8bb48e785a7a18c39803747ebb/0783d/not-defined.png 240w,
+/static/7dd43d8bb48e785a7a18c39803747ebb/2bff6/not-defined.png 432w&quot;
+          sizes=&quot;(max-width: 432px) 100vw, 432px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/7dd43d8bb48e785a7a18c39803747ebb/2bff6/not-defined.png&quot;
+          alt=&quot;not defined&quot;
+          title=&quot;not defined&quot;
+          loading=&quot;lazy&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;This &lt;code class=&quot;language-text&quot;&gt;ReferenceError&lt;/code&gt; is telling us that we have not &lt;em&gt;declared&lt;/em&gt; the variable &lt;code class=&quot;language-text&quot;&gt;a&lt;/code&gt; and therefore it is &lt;em&gt;not defined&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Let’s declare &lt;code class=&quot;language-text&quot;&gt;a&lt;/code&gt; and see what happens.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 435px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/c26eb09640ad9b519a142ca2c373dfeb/48ba6/undefined.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 18.160919540229887%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAIAAAABPYjBAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAPUlEQVQI153NQQ7AIAgFUe5/15bIN4gQ0F6Bvv1kaPPyxzB3Zp4mMjV5B/MQkYjoxcu+LVQVgLtXB2Wd3y7gZ+1XRJfSpgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/c26eb09640ad9b519a142ca2c373dfeb/01472/undefined.webp 240w,
+/static/c26eb09640ad9b519a142ca2c373dfeb/8e624/undefined.webp 435w&quot;
+          sizes=&quot;(max-width: 435px) 100vw, 435px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/c26eb09640ad9b519a142ca2c373dfeb/0783d/undefined.png 240w,
+/static/c26eb09640ad9b519a142ca2c373dfeb/48ba6/undefined.png 435w&quot;
+          sizes=&quot;(max-width: 435px) 100vw, 435px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/c26eb09640ad9b519a142ca2c373dfeb/48ba6/undefined.png&quot;
+          alt=&quot;undefined&quot;
+          title=&quot;undefined&quot;
+          loading=&quot;lazy&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;The &lt;code class=&quot;language-text&quot;&gt;let&lt;/code&gt; (as well as the &lt;code class=&quot;language-text&quot;&gt;var&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;const&lt;/code&gt;) keyword is used to &lt;em&gt;declare&lt;/em&gt; a variable but since we have not assigned it an actual value, &lt;code class=&quot;language-text&quot;&gt;a&lt;/code&gt; is &lt;em&gt;undefined&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;The difference may feel subtle but they really are different things. In one case, &lt;code class=&quot;language-text&quot;&gt;a&lt;/code&gt; doesn’t even exist (i.e. not defined) and in the other it does but doesn’t have a value. &lt;/p&gt;</content:encoded></item><item><title><![CDATA[Catalog Your Blogs]]></title><description><![CDATA[Why you should catalog your blogs.]]></description><link>https://lumen.netlify.com/posts/catalog-your-blogs</link><guid isPermaLink="false">https://lumen.netlify.com/posts/catalog-your-blogs</guid><pubDate>Mon, 16 Dec 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;I’ve always loved writing.  When I entered the tech industry, it felt natural that I would gravitate towards the idea of blogging.  Many of my early articles were contributions for my company’s website.  Company blogs are a great platform to write on.  I learned to work with other departments (usually marketing since they were the ones in charge of the website) and they were always very grateful to get more content.&lt;/p&gt;
+&lt;p&gt;As I moved from company to company, I tried to continue this practice.
+One of the problems I have run across is, the internet is not really a permanent thing.  Websites get rewritten, articles get lost, companies sometimes remove the blogs of former employees.  &lt;/p&gt;
+&lt;p&gt;As a result, many references to my old blogs were suffering from link rot.&lt;/p&gt;
+&lt;p&gt;This is not really an uncommon thing.  But I had wish I had preserved the articles I’ve written since they represent past work that I’m proud of.&lt;/p&gt;
+&lt;p&gt;So with the help of the &lt;a href=&quot;https://archive.org/web/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Wayback Machine&lt;/a&gt;, I started collecting some of my past articles and putting them into a &lt;a href=&quot;https://github.com/lizlam/p4blog&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;GitHub repo&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;My process for this looked something like:&lt;/p&gt;
+&lt;p&gt;1.) Find an old URL and look for it in the Wayback Machine
+2.) Save a PDF or PNG using a &lt;a href=&quot;https://gofullpage.com/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Chrome extension&lt;/a&gt;
+3.) Commit to GitHub repo  &lt;/p&gt;
+&lt;p&gt;Having a catalog in GitHub works pretty well since I can browse the articles pretty easily and previewing PDF’s and PNG’s are not a problem.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 960px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/0e9ed499a3f9d9b57d52a07ca5d230fc/abbab/p4blog.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 66.33165829145729%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAAsSAAALEgHS3X78AAACN0lEQVQ4y3VTyW7bMBDVJ6e9FgjST+ihl576BYnRwklaG3Hic4ACPQRwe3AUy5t2iRRJkZJeh5SVtC4y8POQGs7wzUJPsgy1YJBSQCqFSkiUjNO6Bq+E03YvpHJrQXb7vdbGfVcHe9N2Dl7JBdIsR1YqRLlGFMWI4qQHrZM0RZKkbh/SXlMgKy05W9HGICH/OM3obA7PD/ZYBhGirEJcEDtBNwt9pF9Q1S2hcxC6A1ct+XKEKUNSCHhc1MiZgjENmqZxN/f02yN9QNPC0Dl73rId9ACPUf6cV1A13U51ekHttLBa9LUdYGtpA+VFic1ujyjJkOUl1VbCa4lB13UOSnBUeQKeJRBFBk3NqqsSWgliZtlop8uyQBjuHRQ1c/C38Owf0BdYsgL5NoAuUpg8RsMLGJqCVlbOjq4/NxqN8ObkBO/PzsBYeTD1Nq+P3J/nnGMVBNiFMfZJgb3rduymwKZloeoai8UC4/EVZrMZpKieA/7FsJeq4ggoYLBa4WkVUPA1ttstUhqdMC2xi3M3d1ZmDyEYdRqtgS3bENQbIruUpcRkMsHo4gLjyytMplPc3d1iPp9jdnODb9fX8H2fMmG4//ngZrNp9LP/EcOO2q4dq2C9QeCv8HvxC8vlEo+PPp5ov9nu3IvKMoY4zCGYIJ/6lYCkbRfXYYEgpKdWKUpP0xNr3PwZY+evT+3z1x94++ESp59uEdFAv1LDnmFLQ2vXpjH4Xzr3+/j9Hu/Ov+D0fIp18m/AP4Tk35MSJdhAAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/0e9ed499a3f9d9b57d52a07ca5d230fc/01472/p4blog.webp 240w,
+/static/0e9ed499a3f9d9b57d52a07ca5d230fc/222bd/p4blog.webp 480w,
+/static/0e9ed499a3f9d9b57d52a07ca5d230fc/620b9/p4blog.webp 960w,
+/static/0e9ed499a3f9d9b57d52a07ca5d230fc/fbde0/p4blog.webp 995w&quot;
+          sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/0e9ed499a3f9d9b57d52a07ca5d230fc/0783d/p4blog.png 240w,
+/static/0e9ed499a3f9d9b57d52a07ca5d230fc/782f4/p4blog.png 480w,
+/static/0e9ed499a3f9d9b57d52a07ca5d230fc/f570d/p4blog.png 960w,
+/static/0e9ed499a3f9d9b57d52a07ca5d230fc/abbab/p4blog.png 995w&quot;
+          sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/0e9ed499a3f9d9b57d52a07ca5d230fc/f570d/p4blog.png&quot;
+          alt=&quot;Blog in GitHub&quot;
+          title=&quot;Blog in GitHub&quot;
+          loading=&quot;lazy&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;They feel just as relevant as any side coding project I’ve ever done.&lt;/p&gt;
+&lt;p&gt;I also started collecting other articles I’ve written for other websites and made a &lt;a href=&quot;https://github.com/lizlam/miscblogs&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;repo&lt;/a&gt; for those.&lt;/p&gt;
+&lt;p&gt;In conclusion, if you have blogs on other platforms and websites that are not your own, it’s a good idea to keep record of it.  I was only able to recover a fraction of what I’ve written in the past from the Wayback Machine, but that is a good place to start.  I would also recommend putting current blogs in a repo for posterity, because you never know when those references will experience link rot as well.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Explore and Delete Files in vim]]></title><description><![CDATA[Did you know that you are not just restricted to editing in vim?]]></description><link>https://lumen.netlify.com/posts/vim-explore-delete</link><guid isPermaLink="false">https://lumen.netlify.com/posts/vim-explore-delete</guid><pubDate>Mon, 02 Dec 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Hello World! I’m back to talk to about my favorite editor.  &lt;/p&gt;
 &lt;p&gt;Did you know that you are not just restricted to editing in &lt;code class=&quot;language-text&quot;&gt;vim&lt;/code&gt;?  &lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/c01537686dea3c338fe53ef732c81a9f/vim-explore-delete.gif&quot; alt=&quot;explore and delete files in vim&quot;&gt;&lt;/p&gt;
 &lt;p&gt;You can explore your current directory by hitting &lt;code class=&quot;language-text&quot;&gt;:Ex&lt;/code&gt;. &lt;/p&gt;
@@ -51,6 +428,27 @@ Stage this hunk [y,n,q,a,d,K,g,/,e,?]? y&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Now commit as normal.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ git commit -m &amp;quot;Modify the 10th line&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;You still have the changes to line 1 in your workspace but now your modification of line 10 is committed to the repo.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[How to Use Tabs in vim]]></title><description><![CDATA[I started using tabs just recently in vim and found it pretty useful.]]></description><link>https://lumen.netlify.com/posts/using-vim-tabs</link><guid isPermaLink="false">https://lumen.netlify.com/posts/using-vim-tabs</guid><pubDate>Fri, 15 Nov 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;I started using tabs just recently in &lt;code class=&quot;language-text&quot;&gt;vim&lt;/code&gt; and found it pretty useful.&lt;br&gt;
+Here are a couple of tips on how to create, open and navigate tabs in my favorite editor.&lt;/p&gt;
+&lt;h1 id=&quot;create&quot;&gt;&lt;a href=&quot;#create&quot; aria-label=&quot;create permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Create&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&quot;/a10bca9a431aec3d5753074f5e4be625/vim-tabs-newfile.gif&quot; alt=&quot;Create files in vim&quot;&gt;&lt;/p&gt;
+&lt;p&gt;There are many ways to create a new file on the command line.  &lt;/p&gt;
+&lt;p&gt;In &lt;code class=&quot;language-text&quot;&gt;vim&lt;/code&gt;, you can start to create a new file using tabs with the following:&lt;/p&gt;
+&lt;p&gt;Type &lt;code class=&quot;language-text&quot;&gt;:tabnew&lt;/code&gt; and then hit &lt;code class=&quot;language-text&quot;&gt;ENTER&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;On my Mac, this drops me into the editor in &lt;em&gt;insert&lt;/em&gt; mode.&lt;br&gt;
+You may need to enter &lt;em&gt;insert&lt;/em&gt; mode manually (i.e. hit &lt;code class=&quot;language-text&quot;&gt;i&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;Type away to your heart’s content!&lt;/p&gt;
+&lt;p&gt;To write the file:
+Hit &lt;code class=&quot;language-text&quot;&gt;ESC&lt;/code&gt;
+Type &lt;code class=&quot;language-text&quot;&gt;:w file_name&lt;/code&gt; and then enter. &lt;/p&gt;
+&lt;h1 id=&quot;open&quot;&gt;&lt;a href=&quot;#open&quot; aria-label=&quot;open permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Open&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&quot;/fa18351de389b1d21a6f14c6584a53ef/vim-tabs-editfile.gif&quot; alt=&quot;Edit files in vim&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Open an existing file using &lt;code class=&quot;language-text&quot;&gt;:tabe name_of_file&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Be mindful of your spelling because if &lt;code class=&quot;language-text&quot;&gt;name_of_file&lt;/code&gt; doesn’t exist, &lt;code class=&quot;language-text&quot;&gt;vim&lt;/code&gt; will open a tab with an empty buffer as though you were trying to create a new file.   &lt;/p&gt;
+&lt;h1 id=&quot;navigate&quot;&gt;&lt;a href=&quot;#navigate&quot; aria-label=&quot;navigate permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Navigate&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&quot;/43c7bfc52db9d5bf0fb619619ee147fb/vim-tabs-gotabs.gif&quot; alt=&quot;Navigate in vim&quot;&gt;&lt;/p&gt;
+&lt;p&gt;In &lt;em&gt;command&lt;/em&gt; mode (hit &lt;code class=&quot;language-text&quot;&gt;ESC&lt;/code&gt;):&lt;/p&gt;
+&lt;p&gt;Navigate forward between tabs with &lt;code class=&quot;language-text&quot;&gt;gt&lt;/code&gt;.&lt;br&gt;
+Navigate back using &lt;code class=&quot;language-text&quot;&gt;gT&lt;/code&gt;.    &lt;/p&gt;</content:encoded></item><item><title><![CDATA[How to Use Tabs in vim]]></title><description><![CDATA[I started using tabs just recently in vim and found it pretty useful.]]></description><link>https://lumen.netlify.com/posts/using-vim-tabs</link><guid isPermaLink="false">https://lumen.netlify.com/posts/using-vim-tabs</guid><pubDate>Fri, 15 Nov 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;I started using tabs just recently in &lt;code class=&quot;language-text&quot;&gt;vim&lt;/code&gt; and found it pretty useful.&lt;br&gt;
 Here are a couple of tips on how to create, open and navigate tabs in my favorite editor.&lt;/p&gt;
 &lt;h1 id=&quot;create&quot;&gt;&lt;a href=&quot;#create&quot; aria-label=&quot;create permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Create&lt;/h1&gt;
 &lt;p&gt;&lt;img src=&quot;/a10bca9a431aec3d5753074f5e4be625/vim-tabs-newfile.gif&quot; alt=&quot;Create files in vim&quot;&gt;&lt;/p&gt;
@@ -542,7 +940,7 @@ For example, to access what is in the &lt;code class=&quot;language-text&quot;&g
 &lt;h2 id=&quot;go-back-to-step-1&quot;&gt;&lt;a href=&quot;#go-back-to-step-1&quot; aria-label=&quot;go back to step 1 permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Go Back to Step 1.&lt;/h2&gt;
 &lt;p&gt;Iterate, iterate, iterate.&lt;/p&gt;
 &lt;h2 id=&quot;conclusion&quot;&gt;&lt;a href=&quot;#conclusion&quot; aria-label=&quot;conclusion permalink&quot; class=&quot;anchor&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Conclusion&lt;/h2&gt;
-&lt;p&gt;There are many other details in the book and though they are in the context of product manufacturing, I think the takeaways from it are invaluable to those of us in the software world. j&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Learn Redux or Not?]]></title><description><![CDATA[Should you learn Redux with the arrival of hooks?]]></description><link>https://lumen.netlify.com/posts/learn-redux-or-not</link><guid isPermaLink="false">https://lumen.netlify.com/posts/learn-redux-or-not</guid><pubDate>Wed, 05 Jun 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;I just finished going through &lt;a href=&quot;https://www.learnredux.com/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Learn Redux&lt;/a&gt; by Wes Bos.  This course is really good.  It’s free.  It’s short.  It somehow manages to both give a great overview on Redux and dig into the details of how it works in just 2.5 hours.  And although &lt;a href=&quot;https://dev.to/grepliz/a-review-of-javascript30-aka-how-to-finish-your-online-courses-hpk&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;I’ve come up with strategies&lt;/a&gt; to complete the online courses I enroll in, I was very close to not finishing this one halfway through.&lt;/p&gt;
+&lt;p&gt;There are many other details in the book and though they are in the context of product manufacturing, I think the takeaways from it are invaluable to those of us in the software world.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Learn Redux or Not?]]></title><description><![CDATA[Should you learn Redux with the arrival of hooks?]]></description><link>https://lumen.netlify.com/posts/learn-redux-or-not</link><guid isPermaLink="false">https://lumen.netlify.com/posts/learn-redux-or-not</guid><pubDate>Wed, 05 Jun 2019 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;I just finished going through &lt;a href=&quot;https://www.learnredux.com/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Learn Redux&lt;/a&gt; by Wes Bos.  This course is really good.  It’s free.  It’s short.  It somehow manages to both give a great overview on Redux and dig into the details of how it works in just 2.5 hours.  And although &lt;a href=&quot;https://dev.to/grepliz/a-review-of-javascript30-aka-how-to-finish-your-online-courses-hpk&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;I’ve come up with strategies&lt;/a&gt; to complete the online courses I enroll in, I was very close to not finishing this one halfway through.&lt;/p&gt;
 &lt;p&gt;What happened?&lt;/p&gt;
 &lt;p&gt;First, I want to mention that I’m the mother of two young toddlers.  So anyone with kids will know that at this season of life, &lt;em&gt;learning time&lt;/em&gt; is at a premium.
 I want spent the little bits of free time I have as efficiently as possible.  So I either want to learn things that are very relevant or things that really interest me. &lt;/p&gt;

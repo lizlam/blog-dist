@@ -1,27 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[blog by grepliz]]></title><description><![CDATA[mostly technical musings]]></description><link>https://grepliz.netlify.com</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 08 Jul 2020 04:30:47 GMT</lastBuildDate><item><title><![CDATA[Create Your Own Quote API with Netlify Functions - Part 2]]></title><description><![CDATA[A 3 part series on creating a quote API with Netlify Functions.]]></description><link>https://grepliz.netlify.com/posts/netlify-functions-quote-api-2</link><guid isPermaLink="false">https://grepliz.netlify.com/posts/netlify-functions-quote-api-2</guid><pubDate>Tue, 07 Jul 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;This is a 3 part exercise on how to create and use your own quote API with Netlify functions.  &lt;/p&gt;
-&lt;p&gt;Part 1: Get a Netlify function up and running locally.&lt;br&gt;
-Part 2: Deploy the function to the Netlify platform.&lt;br&gt;
-Part 3: Tie it all together by using the deployed API to display quotes in a React app.    &lt;/p&gt;
-&lt;p&gt;If you have been following along from Part 1, push your &lt;code class=&quot;language-text&quot;&gt;random-quotes&lt;/code&gt; project to your git hosting provider.  I’m using GitHub, but other providers such as GitLab or BitBucket will work as well.   &lt;/p&gt;
-&lt;ol start=&quot;0&quot;&gt;
-&lt;li&gt;&lt;a href=&quot;https://developer.github.com/apps/installing-github-apps/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Install the Netlify app&lt;/a&gt; on GitHub   &lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://app.netlify.com/signup&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Sign up&lt;/a&gt; for a &lt;a href=&quot;https://www.netlify.com/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Netlify&lt;/a&gt; account.  &lt;/li&gt;
-&lt;li&gt;Once you’re logged in, click on the &lt;strong&gt;&lt;em&gt;New site from git&lt;/em&gt;&lt;/strong&gt; button.&lt;/li&gt;
-&lt;li&gt;Click on the GitHub button&lt;/li&gt;
-&lt;li&gt;Authorize Netlify to have access to your GitHub account&lt;/li&gt;
-&lt;li&gt;Search for and select the &lt;code class=&quot;language-text&quot;&gt;random-quotes&lt;/code&gt; repository. &lt;/li&gt;
-&lt;li&gt;Fill in the following:&lt;br&gt;
-Build command: &lt;code class=&quot;language-text&quot;&gt;yarn build&lt;/code&gt;.&lt;br&gt;
-Publish directory: &lt;code class=&quot;language-text&quot;&gt;build&lt;/code&gt;.      &lt;/li&gt;
-&lt;li&gt;Click on &lt;strong&gt;&lt;em&gt;Deploy site&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Once the deploy is finish, you should see a unique Netlify URL that looks something like this:
-&lt;a href=&quot;https://gracious-jones-94f7bb.netlify.app&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;https://gracious-jones-94f7bb.netlify.app&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Test your deployed API by navigating to:
-&lt;a href=&quot;https://gracious-jones-94f7bb.netlify.app/.netlify/functions/quotes&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;https://gracious-jones-94f7bb.netlify.app/.netlify/functions/quotes&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;If you see a quote, congratulations! You’ve deployed your first Netlify Function with usable quote API!&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;NOTE: Your exact URL will be unique to you.&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;In the next and final section, we will use this API to display a quote in our React app.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Create Your Own Quote API with Netlify Functions - Part 3]]></title><description><![CDATA[A 3 part series on creating a quote API with Netlify Functions.]]></description><link>https://grepliz.netlify.com/posts/netlify-functions-quote-api-3</link><guid isPermaLink="false">https://grepliz.netlify.com/posts/netlify-functions-quote-api-3</guid><pubDate>Tue, 07 Jul 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;This is a 3 part exercise on how to create and use your own quote API with Netlify functions.  &lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[blog by grepliz]]></title><description><![CDATA[mostly technical musings]]></description><link>https://grepliz.netlify.com</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 08 Jul 2020 04:36:22 GMT</lastBuildDate><item><title><![CDATA[Create Your Own Quote API with Netlify Functions - Part 3]]></title><description><![CDATA[A 3 part series on creating a quote API with Netlify Functions.]]></description><link>https://grepliz.netlify.com/posts/netlify-functions-quote-api-3</link><guid isPermaLink="false">https://grepliz.netlify.com/posts/netlify-functions-quote-api-3</guid><pubDate>Tue, 07 Jul 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;This is a 3 part exercise on how to create and use your own quote API with Netlify functions.  &lt;/p&gt;
 &lt;p&gt;Part 1: Get a Netlify function up and running locally.&lt;br&gt;
 Part 2: Deploy the function to the Netlify platform.&lt;br&gt;
 Part 3: Tie it all together by using the deployed API to display quotes in a React app.    &lt;/p&gt;
@@ -61,7 +38,30 @@ The component returns the &lt;a href=&quot;https://reactjs.org/docs/introducing-
 &lt;p&gt;Start your dev environment if you haven’t already with &lt;code class=&quot;language-text&quot;&gt;netlify dev&lt;/code&gt;.  Open up a browser and go to &lt;code class=&quot;language-text&quot;&gt;http://localhost:8888&lt;/code&gt;.  You should see a screen something like the following:&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://dev-to-uploads.s3.amazonaws.com/i/yde9uioup8xbh585d75z.png&quot; alt=&quot;Quote being displayed&quot;&gt;&lt;/p&gt;
 &lt;p&gt;Commit and push these new changes to GitHub.  This should trigger a redeploy on Netlify.  Once the redeploy is complete, you should be able to navigate to your public url and see the same thing. &lt;/p&gt;
-&lt;p&gt;Congratulations! You did it! You’ve created a quotes api, deployed it to Netlify and used the api in a React app.  Hopefully this example serves as a simple foundation on how to build api’s with the power of serverless technologies.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Create Your Own Quote API with Netlify Functions - Part 1]]></title><description><![CDATA[A 3 part series on creating a quote API with Netlify Functions.]]></description><link>https://grepliz.netlify.com/posts/netlify-functions-quote-api-1</link><guid isPermaLink="false">https://grepliz.netlify.com/posts/netlify-functions-quote-api-1</guid><pubDate>Fri, 26 Jun 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;This is a 3 part exercise on how to create and use your own quote API with Netlify functions.  &lt;/p&gt;
+&lt;p&gt;Congratulations! You did it! You’ve created a quotes api, deployed it to Netlify and used the api in a React app.  Hopefully this example serves as a simple foundation on how to build api’s with the power of serverless technologies.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Create Your Own Quote API with Netlify Functions - Part 2]]></title><description><![CDATA[A 3 part series on creating a quote API with Netlify Functions.]]></description><link>https://grepliz.netlify.com/posts/netlify-functions-quote-api-2</link><guid isPermaLink="false">https://grepliz.netlify.com/posts/netlify-functions-quote-api-2</guid><pubDate>Wed, 01 Jul 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;This is a 3 part exercise on how to create and use your own quote API with Netlify functions.  &lt;/p&gt;
+&lt;p&gt;Part 1: Get a Netlify function up and running locally.&lt;br&gt;
+Part 2: Deploy the function to the Netlify platform.&lt;br&gt;
+Part 3: Tie it all together by using the deployed API to display quotes in a React app.    &lt;/p&gt;
+&lt;p&gt;If you have been following along from Part 1, push your &lt;code class=&quot;language-text&quot;&gt;random-quotes&lt;/code&gt; project to your git hosting provider.  I’m using GitHub, but other providers such as GitLab or BitBucket will work as well.   &lt;/p&gt;
+&lt;ol start=&quot;0&quot;&gt;
+&lt;li&gt;&lt;a href=&quot;https://developer.github.com/apps/installing-github-apps/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Install the Netlify app&lt;/a&gt; on GitHub   &lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://app.netlify.com/signup&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Sign up&lt;/a&gt; for a &lt;a href=&quot;https://www.netlify.com/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Netlify&lt;/a&gt; account.  &lt;/li&gt;
+&lt;li&gt;Once you’re logged in, click on the &lt;strong&gt;&lt;em&gt;New site from git&lt;/em&gt;&lt;/strong&gt; button.&lt;/li&gt;
+&lt;li&gt;Click on the GitHub button&lt;/li&gt;
+&lt;li&gt;Authorize Netlify to have access to your GitHub account&lt;/li&gt;
+&lt;li&gt;Search for and select the &lt;code class=&quot;language-text&quot;&gt;random-quotes&lt;/code&gt; repository. &lt;/li&gt;
+&lt;li&gt;Fill in the following:&lt;br&gt;
+Build command: &lt;code class=&quot;language-text&quot;&gt;yarn build&lt;/code&gt;.&lt;br&gt;
+Publish directory: &lt;code class=&quot;language-text&quot;&gt;build&lt;/code&gt;.      &lt;/li&gt;
+&lt;li&gt;Click on &lt;strong&gt;&lt;em&gt;Deploy site&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Once the deploy is finish, you should see a unique Netlify URL that looks something like this:
+&lt;a href=&quot;https://gracious-jones-94f7bb.netlify.app&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;https://gracious-jones-94f7bb.netlify.app&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Test your deployed API by navigating to:
+&lt;a href=&quot;https://gracious-jones-94f7bb.netlify.app/.netlify/functions/quotes&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;https://gracious-jones-94f7bb.netlify.app/.netlify/functions/quotes&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;If you see a quote, congratulations! You’ve deployed your first Netlify Function with usable quote API!&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;NOTE: Your exact URL will be unique to you.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;In the next and final section, we will use this API to display a quote in our React app.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Create Your Own Quote API with Netlify Functions - Part 1]]></title><description><![CDATA[A 3 part series on creating a quote API with Netlify Functions.]]></description><link>https://grepliz.netlify.com/posts/netlify-functions-quote-api-1</link><guid isPermaLink="false">https://grepliz.netlify.com/posts/netlify-functions-quote-api-1</guid><pubDate>Fri, 26 Jun 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;This is a 3 part exercise on how to create and use your own quote API with Netlify functions.  &lt;/p&gt;
 &lt;p&gt;Part 1: Get a Netlify function up and running locally.&lt;br&gt;
 Part 2: Deploy the function to the Netlify platform.&lt;br&gt;
 Part 3: Tie it all together by using the deployed API to display quotes in a React app.    &lt;/p&gt;

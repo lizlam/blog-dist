@@ -9,8 +9,11 @@
 <url> <loc>https://grepliz.netlify.com/posts/netlify-functions-quote-api-1</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://grepliz.netlify.com/posts/girl-geek-thoughts-mentorship</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://grepliz.netlify.com/posts/til-about-netcat</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://grepliz.netlify.com/posts/review-javascript30</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://grepliz.netlify.com/posts/game-review-scuttle</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://grepliz.netlify.com/posts/netlify-functions-quote-api-2</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://grepliz.netlify.com/posts/my-first-three-open-source-contributions</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://grepliz.netlify.com/posts/netlify-functions-quote-api-3</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://grepliz.netlify.com/posts/til-about-ruby-shell-cmd</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://grepliz.netlify.com/posts/astrophotography-for-under-eighty</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://grepliz.netlify.com/posts/til-posix-locale-docker</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -19,7 +22,6 @@
 <url> <loc>https://grepliz.netlify.com/posts/til-setup-rails-solus</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://grepliz.netlify.com/posts/starting-first-startup</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://grepliz.netlify.com/posts/how-to-cherry-pick</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://grepliz.netlify.com/posts/review-javascript30</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://grepliz.netlify.com/posts/first-git-talk</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://grepliz.netlify.com/posts/copy-modified-files-git</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://grepliz.netlify.com/posts/what-does-grep-liz-do</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>

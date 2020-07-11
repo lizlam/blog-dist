@@ -208,6 +208,18 @@
   Link: </component---src-templates-post-template-js-de33f44674d0ec01adf1.js>; rel=preload; as=script
   Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
   Link: </page-data/posts/netlify-functions-quote-api-2/page-data.json>; rel=preload; as=fetch; crossorigin
+/posts/netlify-functions-quote-api-3
+  Link: </webpack-runtime-bdd1c82ceff8d36fb6c0.js>; rel=preload; as=script
+  Link: </styles-89fd2ae28bdf06750a71.js>; rel=preload; as=script
+  Link: </framework-819067737a84e3335151.js>; rel=preload; as=script
+  Link: </532a2f07-a3ad97a5f49049f824d9.js>; rel=preload; as=script
+  Link: </app-8ed0b0d5375fde5087e6.js>; rel=preload; as=script
+  Link: </styles-89fd2ae28bdf06750a71.js>; rel=preload; as=script
+  Link: </cd95ea5cbd2c605f26db819f07999610c9ff4310-20f7e83a20b3d220ffd0.js>; rel=preload; as=script
+  Link: </643651a62fb35a9bb4f20061cb1f214a352d7976-88b26420e8d25b9044bb.js>; rel=preload; as=script
+  Link: </component---src-templates-post-template-js-de33f44674d0ec01adf1.js>; rel=preload; as=script
+  Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
+  Link: </page-data/posts/netlify-functions-quote-api-3/page-data.json>; rel=preload; as=fetch; crossorigin
 /posts/game-review-scuttle
   Link: </webpack-runtime-bdd1c82ceff8d36fb6c0.js>; rel=preload; as=script
   Link: </styles-89fd2ae28bdf06750a71.js>; rel=preload; as=script
@@ -232,18 +244,6 @@
   Link: </component---src-templates-post-template-js-de33f44674d0ec01adf1.js>; rel=preload; as=script
   Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
   Link: </page-data/posts/my-first-three-open-source-contributions/page-data.json>; rel=preload; as=fetch; crossorigin
-/posts/netlify-functions-quote-api-3
-  Link: </webpack-runtime-bdd1c82ceff8d36fb6c0.js>; rel=preload; as=script
-  Link: </styles-89fd2ae28bdf06750a71.js>; rel=preload; as=script
-  Link: </framework-819067737a84e3335151.js>; rel=preload; as=script
-  Link: </532a2f07-a3ad97a5f49049f824d9.js>; rel=preload; as=script
-  Link: </app-8ed0b0d5375fde5087e6.js>; rel=preload; as=script
-  Link: </styles-89fd2ae28bdf06750a71.js>; rel=preload; as=script
-  Link: </cd95ea5cbd2c605f26db819f07999610c9ff4310-20f7e83a20b3d220ffd0.js>; rel=preload; as=script
-  Link: </643651a62fb35a9bb4f20061cb1f214a352d7976-88b26420e8d25b9044bb.js>; rel=preload; as=script
-  Link: </component---src-templates-post-template-js-de33f44674d0ec01adf1.js>; rel=preload; as=script
-  Link: </page-data/app-data.json>; rel=preload; as=fetch; crossorigin
-  Link: </page-data/posts/netlify-functions-quote-api-3/page-data.json>; rel=preload; as=fetch; crossorigin
 /posts/til-about-ruby-shell-cmd
   Link: </webpack-runtime-bdd1c82ceff8d36fb6c0.js>; rel=preload; as=script
   Link: </styles-89fd2ae28bdf06750a71.js>; rel=preload; as=script

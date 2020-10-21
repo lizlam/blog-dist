@@ -1,4 +1,204 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[blog by grepliz]]></title><description><![CDATA[mostly technical musings]]></description><link>https://grepliz.netlify.com</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 11 Jul 2020 08:37:26 GMT</lastBuildDate><item><title><![CDATA[Create Your Own Quote API with Netlify Functions - Part 3]]></title><description><![CDATA[A 3 part series on creating a quote API with Netlify Functions.]]></description><link>https://grepliz.netlify.com/posts/netlify-functions-quote-api-3</link><guid isPermaLink="false">https://grepliz.netlify.com/posts/netlify-functions-quote-api-3</guid><pubDate>Tue, 07 Jul 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;This is a 3 part exercise on how to create and use your own quote API with Netlify functions.  &lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[blog by grepliz]]></title><description><![CDATA[mostly technical musings]]></description><link>https://grepliz.netlify.com</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 21 Oct 2020 06:39:15 GMT</lastBuildDate><item><title><![CDATA[A Gentle Introduction to the Git Command Line]]></title><description><![CDATA[A workshop style introduction to the git command line.]]></description><link>https://grepliz.netlify.com/posts/intro-git</link><guid isPermaLink="false">https://grepliz.netlify.com/posts/intro-git</guid><pubDate>Tue, 06 Oct 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Git is a version control system written by Linus Torvalds in 2005. It was created specifically to manage the Linux Kernel Project. One could say it was written by Linux Kernel Developers for Linux Kernel Developers. As a result, the initial environment for working with git is the command line. &lt;/p&gt;
+&lt;p&gt;Now, if you’re not familiar with the command line (like a Linux Kernel Developer), this can feel scary.  With so many GUI tools out there, you may feel it’s not even necessary to learn.  I want to suggest that knowing how the git GUIs work under the hood is super helpful as a developer.  With some diligence and working through this tutorial, you’ll be a git command line power user in no time…well with some time.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;NOTE&lt;/strong&gt;: I leave out some of the git output for clarity.&lt;/p&gt;
+&lt;h2 id=&quot;creating-a-new-git-repository&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#creating-a-new-git-repository&quot; aria-label=&quot;creating a new git repository permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Creating a new git repository&lt;/h2&gt;
+&lt;p&gt;Open a terminal and run the following commands:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;    $ mkdir project 
+    $ cd project
+    $ git init&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;What did we just do?
+We just created an empty git repository.&lt;/p&gt;
+&lt;p&gt;Let take a look at the state of the git workspace:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;    $ git status
+    On branch master
+
+    No commits yet
+
+    nothing to commit (create/copy files and use &amp;quot;git add&amp;quot; to track)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;add-a-file-to-our-working-directory&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#add-a-file-to-our-working-directory&quot; aria-label=&quot;add a file to our working directory permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Add a file to our working directory&lt;/h2&gt;
+&lt;p&gt;Type the following command:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;    $ echo ‘hello world’ &amp;gt; hello.txt&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Take a look at the status again:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;    $ git status
+    On branch master
+
+    No commits yet
+
+    Untracked files:
+    (use &amp;quot;git add &amp;lt;file&amp;gt;...&amp;quot; to include in what will be committed)
+
+	  hello.txt
+
+    nothing added to commit but untracked files present (use &amp;quot;git add&amp;quot; to track)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The status gives us a clue on what we need to do next:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;    $ git add .&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Git knows we have a new file with the &lt;em&gt;intention&lt;/em&gt; to add it to the repository but we have not committed it yet. This is often a point of confusion for new users.  I think of &lt;code class=&quot;language-text&quot;&gt;git add&lt;/code&gt; like an engagement ring.  It’s a promise to commit, but we’re not there yet.&lt;/p&gt;
+&lt;p&gt;Let’s take a look at the status again:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;    $ git status
+    On branch master
+
+    No commits yet
+
+    Changes to be committed:
+      (use &amp;quot;git rm --cached &amp;lt;file&amp;gt;...&amp;quot; to unstage)
+
+	    new file:   hello.txt&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;time-to-commit&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#time-to-commit&quot; aria-label=&quot;time to commit permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Time to commit&lt;/h2&gt;
+&lt;p&gt;Type the following:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;    $ git commit -m “Commit first file to the repo”&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Congratulations! We have made our first commit to the master branch!
+How do we know what branch we are currently on? &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;     $ git branch
+     * master&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;create-a-new-branch&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#create-a-new-branch&quot; aria-label=&quot;create a new branch permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Create a new branch&lt;/h2&gt;
+&lt;p&gt;Type the following in your terminal:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;    $ git checkout -b dev_llam
+      Switched to a new branch &amp;#39;dev_llam&amp;#39;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This will create a new branch and switch to that branch.&lt;br&gt;
+We should be able to see both branches now:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;    $ git branch
+    * dev_llam
+      master&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;You may be thinking, “Wait??!! I didn’t &lt;code class=&quot;language-text&quot;&gt;cd&lt;/code&gt; into a new directory. How did I switch to a new branch?“.&lt;br&gt;
+This can bit a little bit confusing for those coming from other version control systems.  &lt;/p&gt;
+&lt;p&gt;I think of it like someone pulled the rug out from under me and replaced it with a new one without me ever having to get up. You are physically sitting in the same directory in the filesystem, but the branch has been changed from underneath you.&lt;/p&gt;
+&lt;h2 id=&quot;lets-make-a-change-on-our-new-branch&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#lets-make-a-change-on-our-new-branch&quot; aria-label=&quot;lets make a change on our new branch permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Let’s make a change on our new branch.&lt;/h2&gt;
+&lt;p&gt;Edit hello.txt by adding a 2nd line saying who you are.  (Example: “I am Liz.”)
+If you check the status, you will see git knows we made changes:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;    $ echo &amp;#39;I am Liz.&amp;#39; &amp;gt;&amp;gt; hello.txt
+    $ cat hello.txt
+      hello world
+      I am Liz.
+    $ git status
+    On branch dev_llam
+    Changes not staged for commit:
+      (use &amp;quot;git add &amp;lt;file&amp;gt;...&amp;quot; to update what will be committed)
+      (use &amp;quot;git checkout -- &amp;lt;file&amp;gt;...&amp;quot; to discard changes in working directory)
+
+	    modified:   hello.txt
+
+    no changes added to commit (use &amp;quot;git add&amp;quot; and/or &amp;quot;git commit -a&amp;quot;)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;We want to add our changes:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;    $ git add .&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Now we want to commit them:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;    $ git commit -m “Saying who I am”&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;lets-take-a-look-at-our-history-so-far&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#lets-take-a-look-at-our-history-so-far&quot; aria-label=&quot;lets take a look at our history so far permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Let’s take a look at our history so far.&lt;/h2&gt;
+&lt;p&gt;Type in the terminal:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;    $ git log --oneline
+      187c6fa (HEAD -&amp;gt; dev_llam) Saying who I am
+      deccda5 (master) Commit first file to the repo.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;We now have two commits in our history in our dev branch.&lt;/p&gt;
+&lt;p&gt;NOTE: The seemingly random characters in front of our commit message is called a commit SHA. This commit SHA includes information about the author and date and will be unique to you. If you are following along on your terminal, don’t worry if the output looks a little different.&lt;/p&gt;
+&lt;p&gt;Let’s check on master:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;    $ git checkout master
+    $ git log --oneline
+      deccda5 (HEAD -&amp;gt; master) Commit first file to the repo.
+    $ cat hello.txt
+      hello world&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;time-to-merge&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#time-to-merge&quot; aria-label=&quot;time to merge permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Time to merge!&lt;/h2&gt;
+&lt;p&gt;We want to merge our changes from dev to master.
+Remember, the target branch is always the branch you are on.  Use &lt;code class=&quot;language-text&quot;&gt;git branch&lt;/code&gt; if you are not sure where you are.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;    $ git merge dev_llam&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Now we should see that master has the same changes as our dev branch.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;    $ git log --oneline
+      187c6fa (HEAD -&amp;gt; master, dev_llam) Saying who I am
+      deccda5 Commit first file to the repo.
+    $ cat hello.txt
+      hello world
+      I am Liz.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;what-about-cloning&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#what-about-cloning&quot; aria-label=&quot;what about cloning permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;What about cloning?&lt;/h2&gt;
+&lt;p&gt;Open another terminal window and clone the repo we just created:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;    $ git clone /path/to/git/project project2&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;You should see an exact copy of what we had in the original project:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;    $ cd project2
+    $ git log --oneline 
+      187c6fa (HEAD -&amp;gt; master, dev_llam) Saying who I am
+      deccda5 Commit first file to the repo.
+    $ cat hello.txt &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;what-about-pulling&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#what-about-pulling&quot; aria-label=&quot;what about pulling permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;What about pulling?&lt;/h2&gt;
+&lt;p&gt;To keep our repo updated, we need to pull from the original/remote.&lt;/p&gt;
+&lt;p&gt;Go to the &lt;em&gt;first&lt;/em&gt; terminal window with the original project open and make a change and commit it.  &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;   $ echo &amp;#39;I love coffee!&amp;#39; &amp;gt;&amp;gt; hello.txt
+   $ git add .
+   $ git commit -m &amp;quot;Add line about my love of caffeine.&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Go back to the &lt;em&gt;second&lt;/em&gt; terminal window with project2 open and check its status:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;    $ git status
+    On branch master
+    Your branch is up to date with &amp;#39;origin/master&amp;#39;.
+
+    nothing to commit, working tree clean&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;That’s interesting.  Didn’t we just make a change in the original project?!? Our cloned project (project2) does not know it is out of date with the original.
+That is because we need to &lt;em&gt;fetch&lt;/em&gt; the changes (note: fetching is different from pulling).&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;    $ git fetch origin master
+    $ git status
+      On branch master
+      Your branch is behind &amp;#39;origin/master&amp;#39; by 1 commit, and can be fast-forwarded.
+        (use &amp;quot;git pull&amp;quot; to update your local branch)
+
+      nothing to commit, working tree clean&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Great! Now our repo is updated…but our working directory is not.
+This is because fetching only updates our local repo, while pulling will fetch and merge it into our local workspace.
+As the git output suggest, let’s pull!&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;    $ git pull
+    $ git log --oneline
+      fb58b27 (HEAD -&amp;gt; master, origin/master, origin/HEAD) Add line about my love of caffeine.
+      187c6fa (origin/dev_llam) Saying who I am
+      deccda5 Commit first file to the repo.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Yay! We’re done! We have successfully pulled the coffee change from a remote repo.&lt;/p&gt;
+&lt;p&gt;If you’ve made it this far, you are a trooper! Congratulations!&lt;/p&gt;
+&lt;p&gt;You now know how to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Create a new git repository&lt;/li&gt;
+&lt;li&gt;Add and commit files to a repo&lt;/li&gt;
+&lt;li&gt;Create and merge branches&lt;/li&gt;
+&lt;li&gt;Clone a repository&lt;/li&gt;
+&lt;li&gt;Fetch and pull changes&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Hopefully this was an insightful glimpse of the things possible with &lt;code class=&quot;language-text&quot;&gt;git&lt;/code&gt; and the command line at your finger tips.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[How to use the fetch APi with and without async/await]]></title><description><![CDATA[A quick example of using fetch with and without async/await.]]></description><link>https://grepliz.netlify.com/posts/fetch-async-await</link><guid isPermaLink="false">https://grepliz.netlify.com/posts/fetch-async-await</guid><pubDate>Sat, 15 Aug 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Sometimes the best way to explain something to someone is to just show them an example.  This was the case when a couple of coworkers had some confusion around using &lt;code class=&quot;language-text&quot;&gt;async&lt;/code&gt;/&lt;code class=&quot;language-text&quot;&gt;await&lt;/code&gt;.  &lt;/p&gt;
+&lt;p&gt;After verbally explaining, I opened up my web console and gave them a quick example.  This seemed to clarify their understanding.  &lt;/p&gt;
+&lt;p&gt;I will share the example here in case it’s helpful to anyone else. &lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 797px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/92a220de800bb75036193aa655fdb98e/43fbc/fetch-async-await.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 59.166666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAIAAADtbgqsAAAACXBIWXMAAAsSAAALEgHS3X78AAABjElEQVQoz22S23LcIAyG/f4v15ukM22S3W7iExiwAYHEyRu52+nsZKP5LpAtdPhRZ72dzKS9NmFVoHQwGrTyWsHxJde879f2YPu+55w7AFi0jjFEhBh9DJ4whGD5vJe659JKvnKCB6u1dsGDkhrAk7NotwO3JmcbhOJ9Acgh3ErdG18upXQO3KQmIE8txRqxIoenlh9Lfbl/VCaiy2WYRrvpbZFeKXCW+6eS054TYvbsBaSUHnN1EeMk5mGclFYBMSJi4lDiVq9H+sbtcZHWKsffYKngr3WbdaOcl221rFZiucAR8NzlGPRQqt1o19r2GymVQ94Qu3F2b8/ix5P8/VP8epqfX/rTuzzPy8sobrzN8lWIs1RnoV7nwz0JKTacTexm7U9/xKXX/WBP7+u515NclQmD9IPcemGXLWpHXzA+yTV03sM4TtY6nmT/7j2/lf3fU4UYP8aPUU7GrYAABJQpUOBDTPGewIqg550jJGNWY0zHUh5LVDOTSsKMx+9MDLv3UKGYsdTyf8M+AZBbsshDVoV4AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/92a220de800bb75036193aa655fdb98e/8ac56/fetch-async-await.webp 240w,
+/static/92a220de800bb75036193aa655fdb98e/d3be9/fetch-async-await.webp 480w,
+/static/92a220de800bb75036193aa655fdb98e/9eee1/fetch-async-await.webp 797w&quot;
+          sizes=&quot;(max-width: 797px) 100vw, 797px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/92a220de800bb75036193aa655fdb98e/8ff5a/fetch-async-await.png 240w,
+/static/92a220de800bb75036193aa655fdb98e/e85cb/fetch-async-await.png 480w,
+/static/92a220de800bb75036193aa655fdb98e/43fbc/fetch-async-await.png 797w&quot;
+          sizes=&quot;(max-width: 797px) 100vw, 797px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/92a220de800bb75036193aa655fdb98e/43fbc/fetch-async-await.png&quot;
+          alt=&quot;Fetch API example&quot;
+          title=&quot;Fetch API example&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;SIDE NOTE: This also made me think about how just playing around in the web console is a great way to learn of JavaScript.  It’s also an easy way to share knowledge because anyone can just copy what you have into their own web console.&lt;/em&gt; &lt;/p&gt;</content:encoded></item><item><title><![CDATA[Create Your Own Quote API with Netlify Functions - Part 3]]></title><description><![CDATA[A 3 part series on creating a quote API with Netlify Functions.]]></description><link>https://grepliz.netlify.com/posts/netlify-functions-quote-api-3</link><guid isPermaLink="false">https://grepliz.netlify.com/posts/netlify-functions-quote-api-3</guid><pubDate>Tue, 07 Jul 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;This is a 3 part exercise on how to create and use your own quote API with Netlify functions.  &lt;/p&gt;
 &lt;p&gt;Part 1: Get a Netlify function up and running locally.&lt;br&gt;
 Part 2: Deploy the function to the Netlify platform.&lt;br&gt;
 Part 3: Tie it all together by using the deployed API to display quotes in a React app.    &lt;/p&gt;

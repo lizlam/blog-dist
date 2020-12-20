@@ -17,6 +17,7 @@
 <url> <loc>https://grepliz.netlify.com/posts/intro-git</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://grepliz.netlify.com/posts/fetch-async-await</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://grepliz.netlify.com/posts/til-about-ruby-shell-cmd</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://grepliz.netlify.com/posts/catalog-your-blogs</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://grepliz.netlify.com/posts/astrophotography-for-under-eighty</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://grepliz.netlify.com/posts/til-posix-locale-docker</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://grepliz.netlify.com/posts/til-lint-jenkinsfile</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -39,12 +40,12 @@
 <url> <loc>https://grepliz.netlify.com/posts/undefined-notdefined</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://grepliz.netlify.com/posts/css-grid-internet-explorer</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://grepliz.netlify.com/posts/output-console-feeling</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://grepliz.netlify.com/posts/catalog-your-blogs</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://grepliz.netlify.com/posts/three-git-alias</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://grepliz.netlify.com/posts/vim-explore-delete</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://grepliz.netlify.com/pages/about/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://grepliz.netlify.com/pages/contacts/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://grepliz.netlify.com/posts/object-freeze</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://grepliz.netlify.com/posts/fathom-lite</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://grepliz.netlify.com/tag/shell</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://grepliz.netlify.com/tag/bash</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://grepliz.netlify.com/tag/browser</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -73,6 +74,7 @@
 <url> <loc>https://grepliz.netlify.com/category/solus</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://grepliz.netlify.com/category/work-culture</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://grepliz.netlify.com/category/work-culture/page/1</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://grepliz.netlify.com/category/analytics</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://grepliz.netlify.com/category/bash</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://grepliz.netlify.com/category/blogs</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://grepliz.netlify.com/category/book-review</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>

@@ -1,4 +1,167 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[blog by grepliz]]></title><description><![CDATA[mostly technical musings]]></description><link>https://grepliz.netlify.com</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 21 Oct 2020 06:43:09 GMT</lastBuildDate><item><title><![CDATA[A Gentle Introduction to the Git Command Line]]></title><description><![CDATA[A workshop style introduction to the git command line.]]></description><link>https://grepliz.netlify.com/posts/intro-git</link><guid isPermaLink="false">https://grepliz.netlify.com/posts/intro-git</guid><pubDate>Tue, 06 Oct 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Git is a version control system written by Linus Torvalds in 2005. It was created specifically to manage the Linux Kernel Project. One could say it was written by Linux Kernel Developers for Linux Kernel Developers. As a result, the initial environment for working with git is the command line. &lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[blog by grepliz]]></title><description><![CDATA[mostly technical musings]]></description><link>https://grepliz.netlify.com</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 20 Dec 2020 00:20:30 GMT</lastBuildDate><item><title><![CDATA[Setting up Fathom Lite in a Docker Container]]></title><description><![CDATA[Setting up an alternative to Google Analytics.]]></description><link>https://grepliz.netlify.com/posts/fathom-lite</link><guid isPermaLink="false">https://grepliz.netlify.com/posts/fathom-lite</guid><pubDate>Sat, 19 Dec 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 960px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 66.66666666666666%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAUBAwb/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAF7VCEbmVD/xAAZEAACAwEAAAAAAAAAAAAAAAAAAgEDBBL/2gAIAQEAAQUCJGtRZrbuvRqeXP/EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABoQAAICAwAAAAAAAAAAAAAAAAECABARIlH/2gAIAQEABj8CrDOoMVuiFF1Ar//EABkQAQEAAwEAAAAAAAAAAAAAAAEAETFBYf/aAAgBAQABPyFcTvDALKts1uH0U22b/9oADAMBAAIAAwAAABAzD//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EABsQAQACAwEBAAAAAAAAAAAAAAEAESExgUFR/9oACAEBAAE/ECNZWI7wRbtpGMJ0Ki+pENsKV9vOQtaBv0tez//Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/6fbf827c09d8437c31570121c5933f99/8ac56/analytics-cover.webp 240w,
+/static/6fbf827c09d8437c31570121c5933f99/d3be9/analytics-cover.webp 480w,
+/static/6fbf827c09d8437c31570121c5933f99/e46b2/analytics-cover.webp 960w,
+/static/6fbf827c09d8437c31570121c5933f99/f992d/analytics-cover.webp 1440w,
+/static/6fbf827c09d8437c31570121c5933f99/882b9/analytics-cover.webp 1920w,
+/static/6fbf827c09d8437c31570121c5933f99/019b0/analytics-cover.webp 3999w&quot;
+          sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/6fbf827c09d8437c31570121c5933f99/09b79/analytics-cover.jpg 240w,
+/static/6fbf827c09d8437c31570121c5933f99/7cc5e/analytics-cover.jpg 480w,
+/static/6fbf827c09d8437c31570121c5933f99/6a068/analytics-cover.jpg 960w,
+/static/6fbf827c09d8437c31570121c5933f99/644c5/analytics-cover.jpg 1440w,
+/static/6fbf827c09d8437c31570121c5933f99/0f98f/analytics-cover.jpg 1920w,
+/static/6fbf827c09d8437c31570121c5933f99/d55cf/analytics-cover.jpg 3999w&quot;
+          sizes=&quot;(max-width: 960px) 100vw, 960px&quot;
+          type=&quot;image/jpeg&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/6fbf827c09d8437c31570121c5933f99/6a068/analytics-cover.jpg&quot;
+          alt=&quot;cover&quot;
+          title=&quot;cover&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+    &lt;/span&gt;
+&lt;span&gt;Photo by &lt;a href=&quot;https://unsplash.com/@markuswinkler?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&quot;&gt;Markus Winkler&lt;/a&gt; on &lt;a href=&quot;https://unsplash.com/s/photos/charts?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&quot;&gt;Unsplash&lt;/a&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;I have recently been playing around with &lt;a href=&quot;https://usefathom.com/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Fathom&lt;/a&gt; to gather visitor stats on my websites.  I really like its promise of being a “simple, light-weight privacy-first alternative to Google Analytic”.&lt;/p&gt;
+&lt;p&gt;It was also appealing that they offer a &lt;a href=&quot;https://github.com/usefathom/fathom&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;lite version&lt;/a&gt; for those who wish to self host.  Seeing they provided a pre-built Docker image made it a no-brainer to want to give it a spin. It took a bit of configuration to get everything working and I’ve documented the steps here in case it’s helpful for anyone else (AKA me in 6 months).&lt;/p&gt;
+&lt;p&gt;So before diving into the details, this is the overall picture of the setup:&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 400px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/09b3447700dbdbf6e71d698f550be9e6/e17e5/fathom-lite-overview.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAIAAABr+ngCAAAACXBIWXMAAC4jAAAuIwF4pT92AAADnklEQVQozwGTA2z8AAUEAxMRDicjHj43MFZMQ2tgVH1xY4t/b5WId5uNfZyPgJaKe4uBc390aGtjWVZQST47NSYlIRMSEAUFBAAYFhIyLSdQRz9tY1iJfm+hlIO1ppTDtKDNvKfNvajFtqLGuKa+saGmnI2ckoWIf3VtZl1PS0QyLysYFxUANC8qVk5FeG5imIx8s6WTyryp2Mm14tPA6drI6NvK4dbF5dnI4djHy8O1yL+xsamdl5CGeXNqVVFLMzIuAFJKQXhuYpmNfbqrmdbFsNnJs9nJtOnayO/i0PDk0vTn1fXo1uzfzezgz+rg0NfOwbqzpp2WjXhya1FNRwBrYVaUiHmzpZPcy7XfzrjZxq/v2sL35cz148z15Mzx38rz4s7o2MTx49Dx49Lu4M/Wyrq5sKWVjoVqZV8AfnRopZiHxbak5dW/5tXA59fC6djD69vF9+XP9+bS6NrJ59vK6d7P7uPU8OPV8OPU5drMyL+zqqKZfXhyAId+dK2hlMq7rNzOverczNvPv9PGt+TYyebay97Sw+zh1N7WytvUx+ff0+nh1urj2ebf1c7IvrOtpIiEfQCAenKjnJO6s6jEu7Dh2c3Ty8DJwbbj3NDa1s3W0cjj3tTd3NTX18/c29Tk5N3f39nl5N/KycSvrqiKiIQAeHNsmpWMsayivLes1M/G1NLJzsvC1tLJ3tzU5ubd3dzT4ODZ4+Pe6Onl39/c3uDd4+Thx8jEpqaigoJ/AGpnYomGgKGfl7SxqMPBus3MxdHRyc/NxdfXzd3d1d3e1uDh2+Hh39na2NXY1+Dk5Nfa277AwJOUk3N0cgBXVlJ1dXCPj4mqqqO2trDFxr7KysLNzcXNzcXMzMXQ0MnQ0M3Nz83P09HZ3t/T2NrBxcaprK59gIFcXl0AQUE+XFxXd3ZxmpqVpqajr7Cstrexs7OutLSvtLWvtbWxu727wMXDwcXGub2/sLW3mJuce35+Wl5fQEJCACkoJz8+O1VVUW5taYiIhpqamaWnpbS3tL3BvsDDwb7Av7q9vLa6u6+ztaOoqpKXmHuAgV9iZENGRyosLAATExInJyQ7OzlPUE1oaWd+fn6OkI6Zm5qgo6KhpKOgo6OdoKCXm5yMkpN+hIVsb3BWWlw/QkQnKikTFRQABAQEDg4OHR0cLy8tQEBAUFFPXV5caGlpcXNzcnR0cnRzbnFyaGtsXmBiUVRWQURFLzEyHiAgDhAQBAQEEXknYgtSyCsAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+        &lt;source
+          srcset=&quot;/static/09b3447700dbdbf6e71d698f550be9e6/8ac56/fathom-lite-overview.webp 240w,
+/static/09b3447700dbdbf6e71d698f550be9e6/7f61c/fathom-lite-overview.webp 400w&quot;
+          sizes=&quot;(max-width: 400px) 100vw, 400px&quot;
+          type=&quot;image/webp&quot;
+        /&gt;
+        &lt;source
+          srcset=&quot;/static/09b3447700dbdbf6e71d698f550be9e6/8ff5a/fathom-lite-overview.png 240w,
+/static/09b3447700dbdbf6e71d698f550be9e6/e17e5/fathom-lite-overview.png 400w&quot;
+          sizes=&quot;(max-width: 400px) 100vw, 400px&quot;
+          type=&quot;image/png&quot;
+        /&gt;
+        &lt;img
+          class=&quot;gatsby-resp-image-image&quot;
+          src=&quot;/static/09b3447700dbdbf6e71d698f550be9e6/e17e5/fathom-lite-overview.png&quot;
+          alt=&quot;diagram&quot;
+          title=&quot;diagram&quot;
+          loading=&quot;lazy&quot;
+          style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        /&gt;
+      &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The Fathom server is running on port 7070.    &lt;/li&gt;
+&lt;li&gt;The nginx server is running on port 8080.&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The container’s port 8080 is bound to the host’s port 9090.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;On my host machine as root:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;mkdir /opt/fathom&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Create a &lt;code class=&quot;language-text&quot;&gt;fathom.conf&lt;/code&gt; file in &lt;code class=&quot;language-text&quot;&gt;/opt/fathom&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;server {
+	server_name your.domain.name;
+
+	location / {
+		proxy_set_header X-Real-IP $remote_addr;
+		proxy_set_header X-Forwarded-For $remote_addr;
+		proxy_set_header Host $host;
+		proxy_pass http://127.0.0.1:7070; 
+	}  
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;We will be mapping above &lt;code class=&quot;language-text&quot;&gt;fathom.conf&lt;/code&gt; file to a directory in the container to be used by nginx.&lt;/p&gt;
+&lt;p&gt;Create an &lt;code class=&quot;language-text&quot;&gt;.env&lt;/code&gt; file (also in /opt/fathom):&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;FATHOM_SERVER_ADDR=&amp;quot;:7070&amp;quot;
+FATHOM_DATABASE_NAME=&amp;quot;/app/config/fathom.db&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This &lt;code class=&quot;language-text&quot;&gt;.env&lt;/code&gt; file will start the fathom server on port 7070 and place the sqlite db file in &lt;code class=&quot;language-text&quot;&gt;/app/config&lt;/code&gt; in the Docker container.&lt;/p&gt;
+&lt;p&gt;Ok, let’s start our Docker container:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sudo docker run -d -v /opt/fathom:/app/config -p 9090:8080 -p 80:80 --name fathom usefathom/fathom:latest ./fathom --config /app/config/.env server&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Woah!! Woah!! Woah!! I know what you’re thinking.  What the heck is going on here??!!!&lt;/p&gt;
+&lt;p&gt;Let’s break down in this docker command:    &lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;sudo docker run -d&lt;/code&gt; - This runs the Docker container.    &lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;-v /opt/fathom:/app/config&lt;/code&gt; - This maps a volume from our host machine (&lt;code class=&quot;language-text&quot;&gt;/opt/fathom&lt;/code&gt;) to a directory in our Docker container (&lt;code class=&quot;language-text&quot;&gt;/app/config&lt;/code&gt;).    &lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;-p 9090:8080 -p 80:80&lt;/code&gt; - This exposes the container’s port 8080 as the host’s port 9090.  The second argument exposes port 80 as itself.  This will be needed for generating a Let’s Encrypt SSL certificate.    &lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;--name fathom&lt;/code&gt; - This names the container so we can easily reference it.    &lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;usefathom/fathom:latest&lt;/code&gt; - This pulls down the pre-built Docker container provided by Fathom.    &lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;./fathom --config /app/config/.env server&lt;/code&gt; - This starts the fathom server using the &lt;code class=&quot;language-text&quot;&gt;.env&lt;/code&gt; file we just created and mapped into the container.    &lt;/p&gt;
+&lt;p&gt;Now that we have created a running Docker container, we can access it with an interactive bash shell with the following:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sudo docker exec -it fathom /bin/bash&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;NOTE: I didn’t give docker the permissions needed to run it without &lt;code class=&quot;language-text&quot;&gt;sudo&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Once in the container, you should be in the &lt;code class=&quot;language-text&quot;&gt;/app&lt;/code&gt; directory.    &lt;/p&gt;
+&lt;p&gt;Let’s create a fathom user:    &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;fathom --config /app/config/.env user add --email=&amp;quot;your@email.com&amp;quot; --password=&amp;quot;strong-password&amp;quot;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Install nginx, certbot and the certbot/nginx plugin:    &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;apk add certbot certbot-nginx nginx&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;NOTE: The pre-built Docker container is based on the &lt;a href=&quot;https://alpinelinux.org/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Alpine Linux&lt;/a&gt; distribution. Coincidentally, the host machine I’m using is a &lt;a href=&quot;https://www.linode.com&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Linode&lt;/a&gt; that is also Alpine Linux.&lt;/p&gt;
+&lt;p&gt;Symlink the previously created &lt;code class=&quot;language-text&quot;&gt;fathom.conf&lt;/code&gt; so nginx can use it:    &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;ln -s /app/config/fathom.conf /etc/nginx/conf.d/fathom.conf    &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Create certs from Let’s Encrypt:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;mkdir /run/nginx
+certbot --nginx -d your-site.com&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;There will be a series of questions you will need to answer and once done there be updates to your conf file.&lt;/p&gt;
+&lt;p&gt;Open up &lt;code class=&quot;language-text&quot;&gt;/etc/nginx/conf.d/fathom.conf&lt;/code&gt; and find the updated section.  It should looks something like this (excerpt):&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;    listen 80; # managed by Certbot
+
+    listen 443 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/yoursite.com/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/yoursite.com/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Replace &lt;code class=&quot;language-text&quot;&gt;443&lt;/code&gt; to &lt;code class=&quot;language-text&quot;&gt;8080&lt;/code&gt;, the final content should look like this:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;server {
+	server_name your.domain.name;
+
+	location / {
+		proxy_set_header X-Real-IP $remote_addr;
+		proxy_set_header X-Forwarded-For $remote_addr;
+		proxy_set_header Host $host;
+		proxy_pass http://127.0.0.1:7070; 
+	}  
+
+    listen 80; # managed by Certbot
+
+    listen 8080 ssl; # managed by Certbot
+    ssl_certificate /etc/letsencrypt/live/yoursite.com/fullchain.pem; # managed by Certbot
+    ssl_certificate_key /etc/letsencrypt/live/yoursite.com/privkey.pem; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Run nginx:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;nginx -t
+nginx&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Whew! That was a lot! Now go to &lt;code class=&quot;language-text&quot;&gt;https://yourdomain.com:9090&lt;/code&gt; to see your freshly installed Fathom Lite dashboard!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[A Gentle Introduction to the Git Command Line]]></title><description><![CDATA[A workshop style introduction to the git command line.]]></description><link>https://grepliz.netlify.com/posts/intro-git</link><guid isPermaLink="false">https://grepliz.netlify.com/posts/intro-git</guid><pubDate>Tue, 06 Oct 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Git is a version control system written by Linus Torvalds in 2005. It was created specifically to manage the Linux Kernel Project. One could say it was written by Linux Kernel Developers for Linux Kernel Developers. As a result, the initial environment for working with git is the command line. &lt;/p&gt;
 &lt;p&gt;Now, if you’re not familiar with the command line (like a Linux Kernel Developer), this can feel scary.  With so many GUI tools out there, you may feel it’s not even necessary to learn.  I want to suggest that knowing how the git GUIs work under the hood is super helpful as a developer.  With some diligence and working through this tutorial, you’ll be a git command line power user in no time…well with some time.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;NOTE&lt;/strong&gt;: I leave out some of the git output for clarity.&lt;/p&gt;
 &lt;h2 id=&quot;creating-a-new-git-repository&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#creating-a-new-git-repository&quot; aria-label=&quot;creating a new git repository permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Creating a new git repository&lt;/h2&gt;

@@ -46,8 +46,9 @@
 <url> <loc>https://grepliz.netlify.com/posts/reverse-whiteboardingb</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://grepliz.netlify.com/posts/object-freeze</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://grepliz.netlify.com/posts/three-git-alias</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://grepliz.netlify.com/posts/seven-languages-part1</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://grepliz.netlify.com/posts/seven-languages-part2</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://grepliz.netlify.com/posts/seven-languages-part1</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://grepliz.netlify.com/posts/seven-languages-part3</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://grepliz.netlify.com/tag/shell</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://grepliz.netlify.com/tag/bash</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://grepliz.netlify.com/tag/browser</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>

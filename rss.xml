@@ -1,4 +1,36 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[blog by grepliz]]></title><description><![CDATA[mostly technical musings]]></description><link>https://grepliz.netlify.com</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 19 Dec 2021 18:19:52 GMT</lastBuildDate><item><title><![CDATA[Some Quick Thoughts on Seven Languages in Seven Weeks - Part 2]]></title><description><![CDATA[Some more quick thoughts as I continue to work through Seven Languages in Seven Weeks by Bruce Tate.]]></description><link>https://grepliz.netlify.com/posts/seven-languages-part2</link><guid isPermaLink="false">https://grepliz.netlify.com/posts/seven-languages-part2</guid><pubDate>Sat, 18 Dec 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;This is a continuation of my thoughts on Seven Languages in Seven Weeks by Bruce Tate.    &lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[blog by grepliz]]></title><description><![CDATA[mostly technical musings]]></description><link>https://grepliz.netlify.com</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 04 Dec 2022 07:04:31 GMT</lastBuildDate><item><title><![CDATA[Some Quick Thoughts on Seven Languages in Seven Weeks - Part 3]]></title><description><![CDATA[Quick thoughts on Clojure as I continue to work through Seven Languages in Seven Weeks by Bruce Tate.]]></description><link>https://grepliz.netlify.com/posts/seven-languages-part3</link><guid isPermaLink="false">https://grepliz.netlify.com/posts/seven-languages-part3</guid><pubDate>Sat, 03 Dec 2022 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;This is a continuation of my thoughts on Seven Languages in Seven Weeks by Bruce Tate.    &lt;/p&gt;
+&lt;p&gt;“Clojure and Java desperately need each other.  Lisp needs the market place that the Java Virtual Machine can offer, and the Java community needs a serious update and an injection of fun.”&lt;/p&gt;
+&lt;p&gt;It’s been a little while and was able to pick up this book again.  I was excited to learn a bit about Clojure since I know Uncle Bob (aka Robert Martin) is a big fan.  It’s interesting to read the above quote since at the time of reading this chapter in 2022 (the book was writtenin 2010), the bit about the Java community needing an update and injection of fun still feels true.  &lt;/p&gt;
+&lt;p&gt;Time has been at a premium for me but I wanted to jot down some quick notes on this chapter.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Function args are separated by spaces.&lt;br&gt;
+Example: &lt;code class=&quot;language-text&quot;&gt;(+ 1 1)&lt;/code&gt; evaluates to 2.&lt;/li&gt;
+&lt;li&gt;Clojure uses prefix notation.&lt;br&gt;
+Examples:&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;(+ 2 2 2 2)&lt;/code&gt; evaluates to 8.&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;(- 8 1 2 )&lt;/code&gt; evaluates to 5.&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;(&amp;lt; 1 2 3 4)&lt;/code&gt; evaluates to true.&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;(&amp;lt; 1 3 2 4)&lt;/code&gt; evalutes to false.    &lt;/li&gt;
+&lt;li&gt;Clojure coerces types.&lt;br&gt;
+Example:
+&lt;code class=&quot;language-text&quot;&gt;(+ 3.0 5)&lt;/code&gt; evaluates to 8.0.&lt;/li&gt;
+&lt;li&gt;Use ‘str’ to concatenate strings.&lt;br&gt;
+Example:
+&lt;code class=&quot;language-text&quot;&gt;(str &quot;name, &quot; &quot;date, &quot; &quot;age.&quot;)&lt;/code&gt; evaluates to “name, date, age.”&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This is how you do an &lt;code class=&quot;language-text&quot;&gt;if&lt;/code&gt;:&lt;br&gt;
+&lt;code class=&quot;language-text&quot;&gt;(if true (println &quot;it&apos;s true!&quot;))&lt;/code&gt; prints “it’s true!“.&lt;/p&gt;
+&lt;p&gt;If you want an &lt;code class=&quot;language-text&quot;&gt;else&lt;/code&gt; add a third argument:
+&lt;code class=&quot;language-text&quot;&gt;(if true (println &quot;it&apos;s true!&quot;) (println &quot;false))&lt;/code&gt; still prints “it’s true!“.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;0&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;&quot;&quot;&lt;/code&gt; are true, &lt;code class=&quot;language-text&quot;&gt;nil&lt;/code&gt; is not true.  This is weird!&lt;/li&gt;
+&lt;li&gt;Use keyword &lt;code class=&quot;language-text&quot;&gt;def&lt;/code&gt; to define variables.&lt;/li&gt;
+&lt;li&gt;Use keyword &lt;code class=&quot;language-text&quot;&gt;defn&lt;/code&gt; to define functions.&lt;/li&gt;
+&lt;li&gt;The simplest form of a function is: &lt;code class=&quot;language-text&quot;&gt;(defn [params] body)&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This is an example of a “Hello World” program in Clojure using functions.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;(defn hello [name] (str &quot;Hello, &quot; name))&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Invoke this with: &lt;code class=&quot;language-text&quot;&gt;(hello &quot;liz&quot;)&lt;/code&gt; and the output will be “Hello, liz”.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Some Quick Thoughts on Seven Languages in Seven Weeks - Part 2]]></title><description><![CDATA[Some more quick thoughts as I continue to work through Seven Languages in Seven Weeks by Bruce Tate.]]></description><link>https://grepliz.netlify.com/posts/seven-languages-part2</link><guid isPermaLink="false">https://grepliz.netlify.com/posts/seven-languages-part2</guid><pubDate>Sat, 18 Dec 2021 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;This is a continuation of my thoughts on Seven Languages in Seven Weeks by Bruce Tate.    &lt;/p&gt;
 &lt;p&gt;The Scala chapter of the book so far seems the most familiar to me.  I have a pretty good understanding of
 Java, so I naturally leaned into this language quite a bit more than the others.  This is the
 first time I saw &lt;code class=&quot;language-text&quot;&gt;traits&lt;/code&gt; outside of a Rust context (another language I’ve been trying to learn on the side).
@@ -36,7 +68,7 @@ companies that use Scala though it is not widespread in the industry.  I am look
 Bruce Tate, the author of Seven Languages in Seven Weeks.  The book surveys 7 different languages: Ruby, Io, Prolog, Scala, Erlang, Clojure and Haskell.  I only had familiarity with Ruby, so I decided to pick it up. I have completed 3 of the 7 languages and I thought I would take some time
 to jot down my thoughts about the book so far.&lt;/p&gt;
 &lt;p&gt;Although the book is slightly dated (2011), it reads really well and is very digestible.  I’ve done a couple of projects in Ruby in the past, but found that the chapter opened my eyes to why Ruby was designed the way it was.  For example, it really was designed with the developer’s experience in mind as oppose to performance.  All the code samples work (though some of the output might be slightly different) and it’s a great introduction to this language.&lt;/p&gt;
-&lt;p&gt;I found this to be less true with the Io chapter.  Most of the trivial code samples worked, but unfortunately, none of the ones that involved http request did.  This was a bit disapointing.  I use JavaScript in my day to day work.  Io is a prototypal language and I was hoping it would help me understand JavaScript (also a prototypal language) more.  I believe it did accomplish this.&lt;/p&gt;
+&lt;p&gt;I found this to be less true with the Io chapter.  Most of the trivial code samples worked, but unfortunately, none of the ones that involved http request did.  This was a bit disappointing.  I use JavaScript in my day to day work.  Io is a prototypal language and I was hoping it would help me understand JavaScript (also a prototypal language) more.  I believe it did accomplish this.&lt;/p&gt;
 &lt;p&gt;The Prolog chapter was very interesting. The code almost seemed like axioms from which you derived your proofs.  The language is rule based and is very different from how I think of programming.  This chapter probably stretched my brain the most, but is so far the most disappointing in terms of getting the code samples to work.  &lt;/p&gt;
 &lt;p&gt;Overall, I still enjoyed going through these first 3 languages and look forward to the remaining 4.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Setting up Fathom Lite in a Docker Container]]></title><description><![CDATA[Setting up an alternative to Google Analytics.]]></description><link>https://grepliz.netlify.com/posts/fathom-lite</link><guid isPermaLink="false">https://grepliz.netlify.com/posts/fathom-lite</guid><pubDate>Sat, 19 Dec 2020 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;

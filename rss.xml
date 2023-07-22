@@ -1,4 +1,144 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog by grepliz]]></title><description><![CDATA[Blog by grepliz]]></description><link>http://github.com/dylang/node-rss</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 25 Jun 2023 01:00:01 GMT</lastBuildDate><item><title><![CDATA[Thoughts on The Making of Karateka]]></title><description><![CDATA[Quick thoughts on The Making of Karateka by Jordan Mechner.]]></description><link>https://grepliz.netlify.app/posts/karateka</link><guid isPermaLink="false">https://grepliz.netlify.app/posts/karateka</guid><pubDate>Sat, 24 Jun 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;I just finished reading &lt;a href=&quot;https://www.jordanmechner.com/en/books/the-making-of-karateka/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;&lt;em&gt;The Making of Karateka: Journals 1982-1985&lt;/em&gt;&lt;/a&gt; by Jordan Mechner.
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog by grepliz]]></title><description><![CDATA[Blog by grepliz]]></description><link>http://github.com/dylang/node-rss</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 22 Jul 2023 02:19:34 GMT</lastBuildDate><item><title><![CDATA[Use jq to format p4 changes output to JSON]]></title><description><![CDATA[Create JSON formatted data from p4 changes output.]]></description><link>https://grepliz.netlify.app/posts/jq-p4-changes</link><guid isPermaLink="false">https://grepliz.netlify.app/posts/jq-p4-changes</guid><pubDate>Fri, 21 Jul 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;I recently ran across &lt;a href=&quot;https://til.simonwillison.net/jq/git-log-json&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;this blog&lt;/a&gt; showing how to use &lt;code class=&quot;language-text&quot;&gt;jq&lt;/code&gt; to format &lt;code class=&quot;language-text&quot;&gt;git log&lt;/code&gt; output to JSON.  Curious about &lt;code class=&quot;language-text&quot;&gt;jq&lt;/code&gt; and wanting to try a similar thing with Perforce, I was able to modify the example pretty easily.&lt;/p&gt;
+&lt;p&gt;This is what &lt;code class=&quot;language-text&quot;&gt;p4 changes&lt;/code&gt; output looks like:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ p4 changes
+
+Change 3 on 2023/07/20 by grepliz@test-local-01 &apos;Add day1.pdf&apos;
+Change 2 on 2023/07/20 by grepliz@test-local-01 &apos;Add crazy.psd.&apos;
+Change 1 on 2023/07/20 by grepliz@test-local-01 &apos;Populated server with files &apos;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Here is how you can format to JSON using &lt;code class=&quot;language-text&quot;&gt;jq&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ p4 changes | jq -R -s &apos;[split(&quot;\n&quot;)[:-1] | map(split(&quot;\u0020&quot;)) | .[] | { &quot;change&quot;: .[1], &quot;author&quot;: .[5], &quot;date&quot;: .[3], &quot;message&quot;: .[6:length] | join(&quot; &quot;) }]&apos;
+
+[
+  {
+    &quot;change&quot;: &quot;3&quot;,
+    &quot;author&quot;: &quot;grepliz@test-local-01&quot;
+    &quot;date&quot;: &quot;2023/07/20&quot;,
+    &quot;message&quot;: &quot;&apos;Add day1.pdf&apos;&quot;
+  },
+  {
+    &quot;change&quot;: &quot;2&quot;,
+    &quot;author&quot;: &quot;grepliz@test-local-01&quot;,
+    &quot;date&quot;: &quot;2023/07/20&quot;,
+    &quot;message&quot;: &quot;&apos;Add crazy.psd.&apos;&quot;
+  },
+  {
+    &quot;change&quot;: &quot;1&quot;,
+    &quot;author&quot;: &quot;grepliz@test-local-01&quot;,
+    &quot;date&quot;: &quot;2023/07/20&quot;,
+    &quot;message&quot;: &quot;&apos;Populated server with files &apos;&quot;
+  }
+]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;I think the original blog I referred to gives a pretty good explanation of what is going on, but I find it helpful to write out what is going on for future reference.&lt;/p&gt;
+&lt;h1 id=&quot;the-input-p4-changes&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#the-input-p4-changes&quot; aria-label=&quot;the input p4 changes permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;The input: &lt;code class=&quot;language-text&quot;&gt;p4 changes&lt;/code&gt;&lt;/h1&gt;
+&lt;p&gt;I know the output of &lt;code class=&quot;language-text&quot;&gt;p4 changes&lt;/code&gt; is being piped into the &lt;code class=&quot;language-text&quot;&gt;jq&lt;/code&gt; program and it is helpful that the output is delimited by a space character and is one line per changelist.  This output produces the columns needed for programs like &lt;code class=&quot;language-text&quot;&gt;jq&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;awk&lt;/code&gt;.&lt;/p&gt;
+&lt;h1 id=&quot;the-flags-jq--r--s&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#the-flags-jq--r--s&quot; aria-label=&quot;the flags jq  r  s permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;The flags: &lt;code class=&quot;language-text&quot;&gt;jq -R -s&lt;/code&gt;&lt;/h1&gt;
+&lt;p&gt;The &lt;code class=&quot;language-text&quot;&gt;jq&lt;/code&gt; flags being used are nicely &lt;a href=&quot;https://jqlang.github.io/jq/manual/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;documented here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;—slurp/-s:&lt;/em&gt;
+&lt;em&gt;Instead of running the filter for each JSON object in the input, read the entire input stream into a large array and run the filter just once.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;—raw-input/-R:&lt;/em&gt;
+&lt;em&gt;Don’t parse the input as JSON. Instead, each line of text is passed to the filter as a string. If combined with —slurp, then the entire input is passed to the filter as a single long string.&lt;/em&gt;&lt;/p&gt;
+&lt;h1 id=&quot;the-jq-filter&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#the-jq-filter&quot; aria-label=&quot;the jq filter permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;The &lt;code class=&quot;language-text&quot;&gt;jq&lt;/code&gt; filter&lt;/h1&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;&apos;[split(&quot;\n&quot;)[:-1] | map(split(&quot;\u0020&quot;)) | .[] | { &quot;change&quot;: .[1], &quot;author&quot;: .[5], &quot;date&quot;: .[3], &quot;message&quot;: .[6:length] | join(&quot; &quot;) }]&apos;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;This is where all the magic happens. There are basically 4 sections to this filter.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;split(&quot;\n&quot;)[:-1]&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This says to split on newlines. If we were to stop here, we would get an array of the changelists.
+Example:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;p4 changes | jq -R -s &apos;split(&quot;\n&quot;)[:-1]&apos;
+[
+  &quot;Change 3 on 2023/07/20 by grepliz@test-local-01 &apos;Add day1.pdf&apos;&quot;,
+  &quot;Change 2 on 2023/07/20 by grepliz@test-local-01 &apos;Add crazy.psd.&apos;&quot;,
+  &quot;Change 1 on 2023/07/20 by grepliz@test-local-01 &apos;Populated server with files &apos;&quot;
+]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;map(split(&quot;\u0020&quot;))&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This tells the filter to map and split on the space character.
+When combined with #1 above it would look like this:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;p4 changes | jq -R -s &apos;split(&quot;\n&quot;)[:-1] | map(split(&quot;\u0020&quot;))&apos;
+                                                                    
+[
+  [
+    &quot;Change&quot;,
+    &quot;3&quot;,
+    &quot;on&quot;,
+    &quot;2023/07/20&quot;,
+    &quot;by&quot;,
+    &quot;grepliz@test-local-01&quot;,
+    &quot;&apos;Add&quot;,
+    &quot;day1.pdf&apos;&quot;
+  ],
+  [
+    &quot;Change&quot;,
+    &quot;2&quot;,
+    &quot;on&quot;,
+    &quot;2023/07/20&quot;,
+    &quot;by&quot;,
+    &quot;grepliz@test-local-01&quot;,
+    &quot;&apos;Add&quot;,
+    &quot;crazy.psd.&apos;&quot;
+  ],
+  [
+    &quot;Change&quot;,
+    &quot;1&quot;,
+    &quot;on&quot;,
+    &quot;2023/07/20&quot;,
+    &quot;by&quot;,
+    &quot;grepliz@test-local-01&quot;,
+    &quot;&apos;Populated&quot;,
+    &quot;server&quot;,
+    &quot;with&quot;,
+    &quot;files&quot;,
+    &quot;&apos;&quot;
+  ]
+]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;.[]&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This creates arrays of the values such that we can iterate over it.  The following is from the documentation:&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Array/Object Value Iterator: .[]&lt;/em&gt;
+&lt;em&gt;If you use the .[index] syntax, but omit the index entirely, it will return all of the elements of an array. Running .[] with the input [1,2,3] will produce the numbers as three separate results, rather than as a single array.&lt;/em&gt;*&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;You can also use this on an object, and it will return all the values of the object.&lt;/em&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;p4 changes | jq -R -s &apos;split(&quot;\n&quot;)[:-1] | map(split(&quot;\u0020&quot;)) | .[]&apos;
+
+[
+  &quot;Change&quot;,
+  &quot;3&quot;,
+  &quot;on&quot;,
+  &quot;2023/07/20&quot;,
+  &quot;by&quot;,
+  &quot;grepliz@test-local-01&quot;,
+  &quot;&apos;Add&quot;,
+  &quot;day1.pdf&apos;&quot;
+]
+[
+  &quot;Change&quot;,
+  &quot;2&quot;,
+  &quot;on&quot;,
+  &quot;2023/07/20&quot;,
+  &quot;by&quot;,
+  &quot;grepliz@test-local-01&quot;,
+  &quot;&apos;Add&quot;,
+  &quot;crazy.psd.&apos;&quot;
+]
+[
+  &quot;Change&quot;,
+  &quot;1&quot;,
+  &quot;on&quot;,
+  &quot;2023/07/20&quot;,
+  &quot;by&quot;,
+  &quot;grepliz@test-local-01&quot;,
+  &quot;&apos;Populated&quot;,
+  &quot;server&quot;,
+  &quot;with&quot;,
+  &quot;files&quot;,
+  &quot;&apos;&quot;
+]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;{ &quot;change&quot;: .[1], &quot;author&quot;: .[5], &quot;date&quot;: .[3], &quot;message&quot;: .[6:length] | join(&quot; &quot;) }&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Finally, this section gives us the desired JSON shape of each changelist and by wrapping the whole thing (the whole jq filter) with &lt;code class=&quot;language-text&quot;&gt;[]&lt;/code&gt;, we get the final array.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Thoughts on The Making of Karateka]]></title><description><![CDATA[Quick thoughts on The Making of Karateka by Jordan Mechner.]]></description><link>https://grepliz.netlify.app/posts/karateka</link><guid isPermaLink="false">https://grepliz.netlify.app/posts/karateka</guid><pubDate>Sat, 24 Jun 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;I just finished reading &lt;a href=&quot;https://www.jordanmechner.com/en/books/the-making-of-karateka/&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;&lt;em&gt;The Making of Karateka: Journals 1982-1985&lt;/em&gt;&lt;/a&gt; by Jordan Mechner.
 Mechner who is probably most well known for his game &lt;a href=&quot;https://archive.org/details/prince_of_persia_1990&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Prince of Persia&lt;/a&gt;, began his
 publishing career with Karateka.  These journals tell his story in a unique and genuine way.  At just 17, he is pushing himself to get into the video game industry by writing computer games on his Apple II.&lt;/p&gt;
 &lt;p&gt;I really loved this book.  It was a great insight into the programming culture of the early 1980’s and what the video game landscape looked like.  I have met so many people who got into programming because of video games and it is interesting to see how that played out for Mechner.&lt;/p&gt;

@@ -1,4 +1,102 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog by grepliz]]></title><description><![CDATA[Blog by grepliz]]></description><link>http://github.com/dylang/node-rss</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 23 Jul 2023 22:03:28 GMT</lastBuildDate><item><title><![CDATA[Use jq to format p4 changes output to JSON]]></title><description><![CDATA[Create JSON formatted data from p4 changes output.]]></description><link>https://grepliz.netlify.app/posts/jq-p4-changes</link><guid isPermaLink="false">https://grepliz.netlify.app/posts/jq-p4-changes</guid><pubDate>Fri, 21 Jul 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;I recently ran across &lt;a href=&quot;https://til.simonwillison.net/jq/git-log-json&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;this blog&lt;/a&gt; showing how to use &lt;code class=&quot;language-text&quot;&gt;jq&lt;/code&gt; to format &lt;code class=&quot;language-text&quot;&gt;git log&lt;/code&gt; output to JSON.  Curious about &lt;code class=&quot;language-text&quot;&gt;jq&lt;/code&gt; and wanting to try a similar thing with Perforce, I was able to modify the example pretty easily.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog by grepliz]]></title><description><![CDATA[Blog by grepliz]]></description><link>http://github.com/dylang/node-rss</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 27 Jul 2023 20:57:37 GMT</lastBuildDate><item><title><![CDATA[Use jq to format p4 changes output to SQLite]]></title><description><![CDATA[Create insert statements from p4 changes output.]]></description><link>https://grepliz.netlify.app/posts/jq-p4-sqlite</link><guid isPermaLink="false">https://grepliz.netlify.app/posts/jq-p4-sqlite</guid><pubDate>Wed, 26 Jul 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;There are so many possibilities once data is structured. In my &lt;a href=&quot;https://grepliz.netlify.app/posts/jq-p4-changes&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;last post&lt;/a&gt; about formating &lt;code class=&quot;language-text&quot;&gt;p4 changes&lt;/code&gt; out to JSON, it occurred to me it would be fairly trivial to put this same data into a &lt;a href=&quot;https://www.sqlite.org/index.html&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;SQLite&lt;/a&gt; databasse.&lt;/p&gt;
+&lt;p&gt;As show in the &lt;a href=&quot;https://grepliz.netlify.app/posts/jq-p4-changes&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;previous post&lt;/a&gt;, &lt;code class=&quot;language-text&quot;&gt;p4 changes&lt;/code&gt; output can be converted to JSON data like this:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;p4 changes | jq -R -s &apos;[split(&quot;\n&quot;)[:-1] | map(split(&quot;\u0020&quot;)) | .[] | { &quot;change&quot;: .[1], &quot;author&quot;: .[5], &quot;date&quot;: .[3], &quot;message&quot;: .[6:length] | join(&quot; &quot;) }]&apos;
+
+[
+  {
+    &quot;change&quot;: &quot;3&quot;,
+    &quot;author&quot;: &quot;grepliz@test-local-01&quot;,
+    &quot;date&quot;: &quot;2023/07/20&quot;,
+    &quot;message&quot;: &quot;&apos;Add day1.pdf&apos;&quot;
+  },
+  {
+    &quot;change&quot;: &quot;2&quot;,
+    &quot;author&quot;: &quot;grepliz@test-local-01&quot;,
+    &quot;date&quot;: &quot;2023/07/20&quot;,
+    &quot;message&quot;: &quot;&apos;Add crazy.psd.&apos;&quot;
+  },
+  {
+    &quot;change&quot;: &quot;1&quot;,
+    &quot;author&quot;: &quot;grepliz@test-local-01&quot;,
+    &quot;date&quot;: &quot;2023/07/20&quot;,
+    &quot;message&quot;: &quot;&apos;Populated server with files &apos;&quot;
+  }
+]&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;For brevity’s sake, I’m going to redirect that output to a file called &lt;code class=&quot;language-text&quot;&gt;json.txt&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;cat&lt;/code&gt; it for the rest of the examples.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;p4 changes | jq -R -s &apos;[split(&quot;\n&quot;)[:-1] | map(split(&quot;\u0020&quot;)) | .[] | { &quot;change&quot;: .[1], &quot;author&quot;: .[5], &quot;date&quot;: .[3], &quot;message&quot;: .[6:length] | join(&quot; &quot;) }]&apos; &gt; json.txt&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2 id=&quot;creating-the-insert-statements&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#creating-the-insert-statements&quot; aria-label=&quot;creating the insert statements permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;CREATING THE INSERT STATEMENTS&lt;/h2&gt;
+&lt;p&gt;We can now pipe the JSON data back into another &lt;code class=&quot;language-text&quot;&gt;jq&lt;/code&gt; filter to produce the &lt;code class=&quot;language-text&quot;&gt;insert&lt;/code&gt; statements needed for a SQLite database.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;cat json.txt | jq -r &apos;.[] | &quot;insert into changes values (\(.change), \&quot;\(.author)\&quot;, \&quot;\(.date)\&quot;, \(.message));&quot;&apos;             
+
+insert into changes values (3, &quot;grepliz@test-local-01&quot;, &quot;2023/07/20&quot;, &apos;Add day1.pdf&apos;);
+insert into changes values (2, &quot;grepliz@test-local-01&quot;, &quot;2023/07/20&quot;, &apos;Add crazy.psd.&apos;);
+insert into changes values (1, &quot;grepliz@test-local-01&quot;, &quot;2023/07/20&quot;, &apos;Populated server with files &apos;);&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The key to this &lt;code class=&quot;language-text&quot;&gt;jq&lt;/code&gt; filter is using string interpolation via &lt;code class=&quot;language-text&quot;&gt;\(exp)&lt;/code&gt; which is documented here:&lt;br&gt;
+&lt;a href=&quot;https://jqlang.github.io/jq/manual/#Stringinterpolation:%5C(exp)&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;https://jqlang.github.io/jq/manual/#Stringinterpolation:\(exp)&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Because the &lt;code class=&quot;language-text&quot;&gt;insert&lt;/code&gt; statement contains characters that can make the filter a bit of a bear to look at (parenthesis and quotations), let’s look at a simpler example.&lt;/p&gt;
+&lt;p&gt;Suppose we just wanted to create a sentence with this format:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Changelist number X was writte by Y on Z.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;What would that look like?&lt;/p&gt;
+&lt;p&gt;Using the &lt;code class=&quot;language-text&quot;&gt;\(exp)&lt;/code&gt; syntax, we can do something like this:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;cat json.txt | jq -r &apos;.[] | &quot;Changelist number \(.change) was written by \(.author) on \(.date)&quot;&apos;                 
+
+Changelist number 3 was written by grepliz@test-local-01 on 2023/07/20
+Changelist number 2 was written by grepliz@test-local-01 on 2023/07/20
+Changelist number 1 was written by grepliz@test-local-01 on 2023/07/20&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Now suppose we wanted to quote the author in our sentence, we would need to add quotation marks and escape them like this: &lt;code class=&quot;language-text&quot;&gt;\&quot;(.author)\&quot;&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;cat json.txt | jq -r &apos;.[] | &quot;Changelist number \(.change) was written by \&quot;\(.author)\&quot; on \(.date).&quot;&apos;
+
+Changelist number 3 was written by &quot;grepliz@test-local-01&quot; on 2023/07/20.
+Changelist number 2 was written by &quot;grepliz@test-local-01&quot; on 2023/07/20.
+Changelist number 1 was written by &quot;grepliz@test-local-01&quot; on 2023/07/20.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Putting it all together, we arrive at this:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;cat json.txt | jq -r &apos;.[] | &quot;insert into changes values (\(.change), \&quot;\(.author)\&quot;, \&quot;\(.date)\&quot;, \(.message));&quot;&apos;
+
+insert into changes values (3, &quot;grepliz@test-local-01&quot;, &quot;2023/07/20&quot;, &apos;Add day1.pdf&apos;);
+insert into changes values (2, &quot;grepliz@test-local-01&quot;, &quot;2023/07/20&quot;, &apos;Add crazy.psd.&apos;);
+insert into changes values (1, &quot;grepliz@test-local-01&quot;, &quot;2023/07/20&quot;, &apos;Populated server with files &apos;);&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Now we just need to redirect this to a file called &lt;code class=&quot;language-text&quot;&gt;insert.sql&lt;/code&gt; and we will import the data into a SQLite database (i.e. append &lt;code class=&quot;language-text&quot;&gt;&gt; insert.sql&lt;/code&gt; to the above statement).&lt;/p&gt;
+&lt;h2 id=&quot;setting-up-the-sqlite-database&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#setting-up-the-sqlite-database&quot; aria-label=&quot;setting up the sqlite database permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;SETTING UP THE SQLITE DATABASE&lt;/h2&gt;
+&lt;p&gt;Create a SQLite database like this:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sqlite3 changelists.db&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This will create a file called &lt;code class=&quot;language-text&quot;&gt;changelists.db&lt;/code&gt; in your current directory and take you the a SQLite interactive prompt.&lt;/p&gt;
+&lt;p&gt;Create a table with a schema that matches the values in the &lt;code class=&quot;language-text&quot;&gt;insert.sql&lt;/code&gt; file.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sqlite&gt; CREATE TABLE changes (
+   ...&gt;     change INTEGER PRIMARY KEY, 
+   ...&gt;     author TEXT NOT NULL, 
+   ...&gt;     date TEXT NOT NULL, 
+   ...&gt;     Message TEXT NOT NULL
+   ...&gt; );&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;We now have an empty table called &lt;code class=&quot;language-text&quot;&gt;changes&lt;/code&gt;.  If we try to &lt;code class=&quot;language-text&quot;&gt;select&lt;/code&gt; from this table, we see that it is empty as indicated by the fact that nothing is returned.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sqlite&gt; select * from changes;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Let’s toggle some options to make the SQL output look a little nicer when we do populate the table.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sqlite&gt; .headers on
+sqlite&gt; .mode columns&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;We can now add a dummy row to see what it will look like.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sqlite&gt; insert into changes values (0, &quot;liz&quot;, &quot;today&quot;, &quot;this is a changelist description.&quot;);
+sqlite&gt; select * from changes;
+change  author  date   Message                          
+------  ------  -----  ---------------------------------
+0       liz     today  this is a changelist description.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Great, that looks pretty good.  Now let’s import the &lt;code class=&quot;language-text&quot;&gt;insert.sql&lt;/code&gt; file we just created.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sqlite&gt; .read insert.sql
+sqlite&gt; select * from changes;
+change  author                 date        Message                          
+------  ---------------------  ----------  ---------------------------------
+0       liz                    today       this is a changelist description.
+1       grepliz@test-local-01  2023/07/20  Populated server with files      
+2       grepliz@test-local-01  2023/07/20  Add crazy.psd.                   
+3       grepliz@test-local-01  2023/07/20  Add day1.pdf                     &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Next, let’s delete our dummy row.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sqlite&gt; delete from changes where change = 0;
+sqlite&gt; select * from changes;
+change  author                 date        Message                     
+------  ---------------------  ----------  ----------------------------
+1       grepliz@test-local-01  2023/07/20  Populated server with files 
+2       grepliz@test-local-01  2023/07/20  Add crazy.psd.              
+3       grepliz@test-local-01  2023/07/20  Add day1.pdf                &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Voila! Now we have a SQLite database with a populated &lt;code class=&quot;language-text&quot;&gt;changes&lt;/code&gt; table.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Use jq to format p4 changes output to JSON]]></title><description><![CDATA[Create JSON formatted data from p4 changes output.]]></description><link>https://grepliz.netlify.app/posts/jq-p4-changes</link><guid isPermaLink="false">https://grepliz.netlify.app/posts/jq-p4-changes</guid><pubDate>Fri, 21 Jul 2023 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;em&gt;UPDATE: Just a few days after hitting publish on this blog, a few folks from the Perforce community shared a better way to output JSON data from p4 commands using the &lt;code class=&quot;language-text&quot;&gt;-ztag&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;-Mj&lt;/code&gt; flags: &lt;code class=&quot;language-text&quot;&gt;p4 -ztag -Mj changes -m3 | jq -s &apos;.&apos;&lt;/code&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;I recently ran across &lt;a href=&quot;https://til.simonwillison.net/jq/git-log-json&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;this blog&lt;/a&gt; showing how to use &lt;code class=&quot;language-text&quot;&gt;jq&lt;/code&gt; to format &lt;code class=&quot;language-text&quot;&gt;git log&lt;/code&gt; output to JSON.  Curious about &lt;code class=&quot;language-text&quot;&gt;jq&lt;/code&gt; and wanting to try a similar thing with Perforce, I was able to modify the example pretty easily.&lt;/p&gt;
 &lt;p&gt;This is what &lt;code class=&quot;language-text&quot;&gt;p4 changes&lt;/code&gt; output looks like:&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ p4 changes
 

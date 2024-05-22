@@ -1,4 +1,69 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog by grepliz]]></title><description><![CDATA[Blog by grepliz]]></description><link>http://github.com/dylang/node-rss</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 14 Feb 2024 07:35:16 GMT</lastBuildDate><item><title><![CDATA[How add grep as a custom tool in P4V]]></title><description><![CDATA[P4V Tips: How to add grep as a custom tool in P4V.]]></description><link>https://grepliz.netlify.app/posts/p4v-grep-custom-tool</link><guid isPermaLink="false">https://grepliz.netlify.app/posts/p4v-grep-custom-tool</guid><pubDate>Tue, 13 Feb 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Creating Custom Tools in P4V is simple way to integrate the power of the CLI tools into
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog by grepliz]]></title><description><![CDATA[Blog by grepliz]]></description><link>http://github.com/dylang/node-rss</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 22 May 2024 04:41:45 GMT</lastBuildDate><item><title><![CDATA[Enough sed - insert and append]]></title><description><![CDATA[How to insert with sed.]]></description><link>https://grepliz.netlify.app/posts/enough-sed-ins</link><guid isPermaLink="false">https://grepliz.netlify.app/posts/enough-sed-ins</guid><pubDate>Thu, 23 May 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Let’s take a look at our &lt;code class=&quot;language-text&quot;&gt;test.txt&lt;/code&gt; file with the following content:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sad
+happy
+awake
+coffee
+work
+school&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;If we want to &lt;em&gt;insert&lt;/em&gt; the word &lt;code class=&quot;language-text&quot;&gt;breakfast&lt;/code&gt; before &lt;code class=&quot;language-text&quot;&gt;coffee&lt;/code&gt;, we would do the following:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ sed &apos;/coffee/i breakfast&apos; test.txt
+sad
+happy
+awake
+breakfast
+coffee
+work
+school
+$&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;We can also &lt;em&gt;append&lt;/em&gt; the word &lt;code class=&quot;language-text&quot;&gt;breakfast&lt;/code&gt; after &lt;code class=&quot;language-text&quot;&gt;coffee&lt;/code&gt; with the following:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ sed &apos;/coffee/a breakfast&apos; test.txt
+sad
+happy
+awake
+coffee
+breakfast
+work
+school
+$&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Note that this does not change the original &lt;code class=&quot;language-text&quot;&gt;test.txt&lt;/code&gt; file.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Enough sed - delete]]></title><description><![CDATA[How to delete with sed.]]></description><link>https://grepliz.netlify.app/posts/enough-sed-del</link><guid isPermaLink="false">https://grepliz.netlify.app/posts/enough-sed-del</guid><pubDate>Wed, 22 May 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Let’s take a look at our &lt;code class=&quot;language-text&quot;&gt;test.txt&lt;/code&gt; file with the following content:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sad
+happy
+awake
+coffee
+work
+school&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;If we want to &lt;em&gt;delete&lt;/em&gt; the word &lt;code class=&quot;language-text&quot;&gt;sad&lt;/code&gt;, we would do the following:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ sed &apos;/sad/d&apos; test.txt
+happy
+awake
+coffee
+work
+school
+$&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;We can also &lt;em&gt;delete&lt;/em&gt; a line range.  For example the following will delete lines 5 through 6:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ sed &apos;5,6d&apos; test.txt
+sad
+happy
+awake
+coffee
+$&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Note that this does not change the original &lt;code class=&quot;language-text&quot;&gt;test.txt&lt;/code&gt; file.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Enough sed - substitute]]></title><description><![CDATA[How to substitute with sed.]]></description><link>https://grepliz.netlify.app/posts/enough-sed-sub</link><guid isPermaLink="false">https://grepliz.netlify.app/posts/enough-sed-sub</guid><pubDate>Tue, 21 May 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Let’s take a look at our &lt;code class=&quot;language-text&quot;&gt;test.txt&lt;/code&gt; file with the following content:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sad
+happy
+awake
+coffee
+work
+school&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;If we want to &lt;em&gt;substitute&lt;/em&gt; the word &lt;code class=&quot;language-text&quot;&gt;coffee&lt;/code&gt; with &lt;code class=&quot;language-text&quot;&gt;water&lt;/code&gt;, we would do the following:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ sed &apos;s/coffee/water/&apos; test.txt
+sad
+happy
+awake
+water
+work
+school
+$&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Note that this does not change the original &lt;code class=&quot;language-text&quot;&gt;test.txt&lt;/code&gt; file.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[How add grep as a custom tool in P4V]]></title><description><![CDATA[P4V Tips: How to add grep as a custom tool in P4V.]]></description><link>https://grepliz.netlify.app/posts/p4v-grep-custom-tool</link><guid isPermaLink="false">https://grepliz.netlify.app/posts/p4v-grep-custom-tool</guid><pubDate>Tue, 13 Feb 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Creating Custom Tools in P4V is simple way to integrate the power of the CLI tools into
 a desktop GUI.  Here is an example on to run grep commands on your workspace files.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Click on Tools | Manage Tools | Custom Tools…&lt;/li&gt;

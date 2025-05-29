@@ -1,4 +1,75 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog by grepliz]]></title><description><![CDATA[Blog by grepliz]]></description><link>http://github.com/dylang/node-rss</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 04 Jul 2024 00:15:38 GMT</lastBuildDate><item><title><![CDATA[Quick Thoughts on The Sierra Adventure by Shawn Mills]]></title><description><![CDATA[Quick Thoughts on The Sierra Adventure by Shawn Mills]]></description><link>https://grepliz.netlify.app/posts/sierra-adventure</link><guid isPermaLink="false">https://grepliz.netlify.app/posts/sierra-adventure</guid><pubDate>Wed, 03 Jul 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;I have spent many evenings playing the original Hero’s Quest (later renamed Quest for Glory) by Sierra On-line with my sister.  If you knew my sister, you would be pretty surprised by this
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Blog by grepliz]]></title><description><![CDATA[Blog by grepliz]]></description><link>http://github.com/dylang/node-rss</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 29 May 2025 05:07:27 GMT</lastBuildDate><item><title><![CDATA[The ABC's of p4 grep - C]]></title><description><![CDATA[What does p4 grep -C do?]]></description><link>https://grepliz.netlify.app/posts/abcs-p4grep-c</link><guid isPermaLink="false">https://grepliz.netlify.app/posts/abcs-p4grep-c</guid><pubDate>Fri, 30 May 2025 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Welcome to The ABC’s of p4 grep!&lt;/p&gt;
+&lt;p&gt;Here we will explore the different flags for the p4 grep commands.&lt;/p&gt;
+&lt;h2 id=&quot;c&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#c&quot; aria-label=&quot;c permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;C&lt;/h2&gt;
+&lt;p&gt;Much like regular &lt;code class=&quot;language-text&quot;&gt;grep&lt;/code&gt;, use the &lt;code class=&quot;language-text&quot;&gt;-C&lt;/code&gt; flag to show the &lt;em&gt;context&lt;/em&gt; around the matching search term.&lt;/p&gt;
+&lt;p&gt;Suppose you have a file named &lt;code class=&quot;language-text&quot;&gt;test.txt&lt;/code&gt; with the following content:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sad
+happy
+awake
+coffee
+work
+school&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;You would search for the word “happy” like this:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ grep -e happy test.txt
+//depot/test.txt#6:happy&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;To see the lines before and after “happy”, execute the following:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ grep -C 1 -e happy test.txt
+//depot/test.txt#6-sad
+//depot/test.txt#6:happy
+//depot/test.txt#6-awake&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[The ABC's of p4 grep - B]]></title><description><![CDATA[Welcome to the ABC's of p4 grep.]]></description><link>https://grepliz.netlify.app/posts/abcs-p4grep-b</link><guid isPermaLink="false">https://grepliz.netlify.app/posts/abcs-p4grep-b</guid><pubDate>Thu, 29 May 2025 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Welcome to The ABC’s of p4 grep!&lt;/p&gt;
+&lt;p&gt;Here we will explore the different flags for the p4 grep command.&lt;/p&gt;
+&lt;h2 id=&quot;b&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#b&quot; aria-label=&quot;b permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;B&lt;/h2&gt;
+&lt;p&gt;Much like the regular &lt;code class=&quot;language-text&quot;&gt;grep&lt;/code&gt;, use the &lt;code class=&quot;language-text&quot;&gt;-B&lt;/code&gt; flag to show the lines &lt;em&gt;before&lt;/em&gt; the matching search term is found.&lt;/p&gt;
+&lt;p&gt;Suppose you have a file named &lt;code class=&quot;language-text&quot;&gt;test.txt&lt;/code&gt; with the following content:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sad
+happy
+awake
+coffee
+work
+school&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;You would search for the word “happy” like this:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ grep -e happy test.txt
+//depot/test.txt#6:happy&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;To see the first line before happy, execute the following:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ grep -B 1 -e happy test.txt
+//depot/test.txt#6-sad
+//depot/test.txt#6:happy&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[The ABC's of p4 grep - A]]></title><description><![CDATA[Welcome to the ABC's of p4 grep.]]></description><link>https://grepliz.netlify.app/posts/abcs-p4grep-a</link><guid isPermaLink="false">https://grepliz.netlify.app/posts/abcs-p4grep-a</guid><pubDate>Wed, 28 May 2025 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;Welcome to The ABC’s of p4 grep!&lt;/p&gt;
+&lt;p&gt;Here we will explore the different flags for the p4 grep commands.&lt;/p&gt;
+&lt;p&gt;Let’s start!&lt;/p&gt;
+&lt;h2 id=&quot;a&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#a&quot; aria-label=&quot;a permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;A&lt;/h2&gt;
+&lt;p&gt;Much like the regular &lt;code class=&quot;language-text&quot;&gt;grep&lt;/code&gt;, use the &lt;code class=&quot;language-text&quot;&gt;-A&lt;/code&gt; flag to show the lines &lt;em&gt;after&lt;/em&gt; the matching search term is found.&lt;/p&gt;
+&lt;p&gt;Suppose you have a file named &lt;code class=&quot;language-text&quot;&gt;test.txt&lt;/code&gt; with the following content:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;sad
+happy
+awake
+coffee
+work
+school&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;You would search for the word “happy” like this:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ grep -e happy test.txt
+//depot/test.txt#6:happy&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;To see the first 2 lines after happy, execute the following:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;$ grep -A 2 -e happy test.txt
+//depot/test.txt#6:happy
+//depot/test.txt#6-awake
+//depot/test.txt#6-coffee&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Now the lowercase &lt;code class=&quot;language-text&quot;&gt;-a&lt;/code&gt; flag stands for “all revisions”. &lt;code class=&quot;language-text&quot;&gt;p4 grep&lt;/code&gt; by default
+only greps through the latest revision.&lt;/p&gt;
+&lt;p&gt;Suppose we have a &lt;code class=&quot;language-text&quot;&gt;helloworld.txt&lt;/code&gt; file with the following content:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;p4 print helloworld.txt
+//depot/helloworld.txt#2 - edit change 9 (text)
+Hello world!&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Let’s search for the term “earth”:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;p4 grep -e earth helloworld.txt&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Nothing. Well, duh! Didn’t you see above that the content of the file is &lt;code class=&quot;language-text&quot;&gt;Hello world&lt;/code&gt;!
+This is true for the latest revision (#2), but we can &lt;code class=&quot;language-text&quot;&gt;p4 print&lt;/code&gt; the first revision to reveal:&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;p4 print helloworld.txt#1
+//depot/helloworld.txt#1 - add change 8 (text)
+Hello earth!&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;So the word “earth” &lt;em&gt;was&lt;/em&gt; in the file, this is where the &lt;code class=&quot;language-text&quot;&gt;-a&lt;/code&gt; flag comes in handy.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;p4 grep -a -e earth helloworld.txt
+//depot/helloworld.txt#1:Hello earth!&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;So use &lt;code class=&quot;language-text&quot;&gt;-a&lt;/code&gt; when searching for a term in all the revisions of a file.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Quick Thoughts on The Sierra Adventure by Shawn Mills]]></title><description><![CDATA[Quick Thoughts on The Sierra Adventure by Shawn Mills]]></description><link>https://grepliz.netlify.app/posts/sierra-adventure</link><guid isPermaLink="false">https://grepliz.netlify.app/posts/sierra-adventure</guid><pubDate>Wed, 03 Jul 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;I have spent many evenings playing the original Hero’s Quest (later renamed Quest for Glory) by Sierra On-line with my sister.  If you knew my sister, you would be pretty surprised by this
 information.  She is not a gamer by any stretch of the imagination, but she loved
 this game.  We were both entralled by the story, game play and music.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;The Sierra Adventure, A Story of Sierra On-line&lt;/em&gt; by &lt;a href=&quot;https://x.com/ShawnMills77&quot; target=&quot;_blank&quot; rel=&quot;nofollow noopener noreferrer&quot;&gt;Shawn Mills&lt;/a&gt; is a delightful trip down memory lane.  Not just about the games themselves but the time spent with those like my sister.  This book takes you through the ups and downs of Sierra as a company.  I love the many insights on how the games were built and designed.  Starting in the late ‘70’s until it’s eventual shutdown, this book documents the company’s roller coaster ride in an ever changing market.&lt;/p&gt;
